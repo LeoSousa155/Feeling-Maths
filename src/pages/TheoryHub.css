@@ -1,0 +1,108 @@
+.theory-hub-wrapper {
+  background: #fbfbfc;
+  min-height: 100vh;
+  font-family: 'Work Sans', sans-serif;
+  color: #2a343a;
+}
+
+.theory-hub-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px;
+}
+
+.theory-hub-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.theory-hub-header h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #2a343a;
+  margin: 0 0 16px 0;
+  letter-spacing: -1px;
+}
+
+.theory-hub-header p {
+  font-size: 18px;
+  color: #566167;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.theory-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.theory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.theory-card-icon {
+  font-size: 32px;
+  background: #f1f5f9;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.theory-card h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  color: #2a343a;
+}
+
+.theory-card p {
+  font-size: 15px;
+  color: #566167;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  flex: 1;
+}
+
+.btn-read-theory {
+  background: #e0f2fe;
+  color: #0060ad;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn-read-theory:hover {
+  background: #0060ad;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .theory-hub-main {
+    padding: 24px;
+  }
+}

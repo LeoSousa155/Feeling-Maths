@@ -1,0 +1,180 @@
+{
+  "themes": [
+    {
+      "id": "algebra",
+      "category": "Algebra",
+      "topic": "Foundations",
+      "titlePrefix": "First-Degree",
+      "titleMain": "Linear Equations",
+      "subtitle": "The foundation of algebraic reasoning. Learn to balance the scales and isolate the unknown variable with precision and calm.",
+      "goldenRule": {
+        "text": "A linear equation is a statement that two expressions are equal. Whatever operation you perform on one side of the equation must be performed on the other to maintain this equality.",
+        "formulaTitle": "GENERAL FORM",
+        "formula": "ax + b = c",
+        "rules": [
+          {
+            "title": "1. Addition & Subtraction",
+            "desc": "Move constant terms to the other side by applying the opposite operation."
+          },
+          {
+            "title": "2. Multiplication & Division",
+            "desc": "Isolate the variable by dividing the coefficient or multiplying the reciprocal."
+          }
+        ]
+      },
+      "proTip": "Think of the equals sign (=) as a pivot point of a scale. To keep the scale level, if you take 5 pounds off the left, you must take 5 pounds off the right.",
+      "imageInfo": {
+        "title": "LINEARITY",
+        "desc": "The graph of a first-degree equation is always a straight line."
+      },
+      "steps": [
+        {
+          "number": 1,
+          "title": "Identify the Goal",
+          "desc": "We want to solve for x in the equation: 3x + 12 = 27"
+        },
+        {
+          "number": 2,
+          "title": "Subtract Constants",
+          "desc": "Subtract 12 from both sides to begin isolating the x term.",
+          "equation": "3x + 12 - 12 = 27 - 12\n3x = 15"
+        },
+        {
+          "number": 3,
+          "title": "Divide by Coefficient",
+          "desc": "Divide both sides by 3 to find the final value of x.",
+          "equation": "x = 5",
+          "solved": true
+        }
+      ]
+    },
+    {
+      "id": "geometry",
+      "category": "Geometry",
+      "topic": "Spatial Basics",
+      "titlePrefix": "Area & Perimeter",
+      "titleMain": "2D Shapes",
+      "subtitle": "Understand the space objects occupy and the borders that enclose them.",
+      "goldenRule": {
+        "text": "Perimeter is the total length of the boundary, while area measures the 2D space inside that boundary.",
+        "formulaTitle": "RECTANGLE AREA",
+        "formula": "A = w × h",
+        "rules": [
+          {
+            "title": "1. Perimeter",
+            "desc": "Add all outer sides together. For a rectangle: P = 2w + 2h."
+          },
+          {
+            "title": "2. Area",
+            "desc": "Multiply the base dimensions. Units are always squared (e.g., cm²)."
+          }
+        ]
+      },
+      "proTip": "Imagine walking along a fence for perimeter, and painting the grass inside the fence for area.",
+      "imageInfo": {
+        "title": "DIMENSIONS",
+        "desc": "Perimeter is 1D (length), Area is 2D (space)."
+      },
+      "steps": [
+        {
+          "number": 1,
+          "title": "Identify the Shape",
+          "desc": "We have a rectangle with width 5m and height 3m."
+        },
+        {
+          "number": 2,
+          "title": "Calculate Perimeter",
+          "desc": "Add all four sides: 5 + 3 + 5 + 3.",
+          "equation": "P = 16m"
+        },
+        {
+          "number": 3,
+          "title": "Calculate Area",
+          "desc": "Multiply width by height.",
+          "equation": "A = 15m²",
+          "solved": true
+        }
+      ]
+    },
+    {
+      "id": "set_theory",
+      "category": "Set Theory",
+      "topic": "Logic & Collections",
+      "titlePrefix": "Unions, Intersections",
+      "titleMain": "& Venn Diagrams",
+      "subtitle": "Visualize the language of logic. Sets are the building blocks of mathematics — once you understand how collections relate to each other, patterns emerge everywhere.",
+      "goldenRule": {
+        "text": "A set is a well-defined, unordered collection of distinct objects called elements. Two sets are equal if and only if they contain exactly the same elements, regardless of order.",
+        "formulaTitle": "SET NOTATION",
+        "formula": "A = { x | P(x) }",
+        "rules": [
+          {
+            "title": "1. Union  A ∪ B",
+            "desc": "All elements that belong to A, to B, or to both. Think 'OR'. |A ∪ B| = |A| + |B| − |A ∩ B|."
+          },
+          {
+            "title": "2. Intersection  A ∩ B",
+            "desc": "Only elements that appear in both A and B simultaneously. Think 'AND'."
+          },
+          {
+            "title": "3. Complement  Aᶜ",
+            "desc": "All elements in the Universal Set (U) that are NOT in A. Aᶜ = U \\ A."
+          },
+          {
+            "title": "4. Difference  A \\ B",
+            "desc": "Elements that are in A but not in B. Also written as A − B."
+          }
+        ]
+      },
+      "proTip": "The word 'AND' almost always means Intersection (∩), while 'OR' means Union (∪). Translate everyday language into set notation first — the math becomes trivial.",
+      "imageInfo": {
+        "title": "CARDINALITY",
+        "desc": "The number of elements in a set is its cardinality, written |A|. The empty set ∅ has cardinality 0."
+      },
+      "extraConcepts": [
+        {
+          "icon": "∅",
+          "title": "Empty Set",
+          "desc": "The set with no elements: ∅ or {}. It is a subset of every set."
+        },
+        {
+          "icon": "⊆",
+          "title": "Subset",
+          "desc": "A ⊆ B if every element of A is also in B. Every set is a subset of itself."
+        },
+        {
+          "icon": "×",
+          "title": "Cartesian Product",
+          "desc": "A × B is the set of all ordered pairs (a, b) where a ∈ A and b ∈ B."
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "title": "Define Your Sets",
+          "desc": "Given: A = {2, 4, 6, 8, 10} and B = {1, 2, 3, 4, 5}. Identify what each set represents before operating on them."
+        },
+        {
+          "number": 2,
+          "title": "Find the Union  A ∪ B",
+          "desc": "Combine all unique elements from both sets. Each element appears only once.",
+          "equation": "A ∪ B = {1, 2, 3, 4, 5, 6, 8, 10}"
+        },
+        {
+          "number": 3,
+          "title": "Find the Intersection  A ∩ B",
+          "desc": "Identify elements that appear in BOTH sets. Scan A for elements also present in B.",
+          "equation": "A ∩ B = {2, 4}"
+        },
+        {
+          "number": 4,
+          "title": "Verify with the Inclusion-Exclusion Principle",
+          "desc": "Check: |A ∪ B| = |A| + |B| − |A ∩ B| = 5 + 5 − 2 = 8. Our union has 8 elements. ✓",
+          "equation": "|A ∪ B| = 5 + 5 − 2 = 8",
+          "solved": true
+        }
+      ]
+    }
+  ]
+}
+

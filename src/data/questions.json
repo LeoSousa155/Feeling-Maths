@@ -1,0 +1,139 @@
+{
+  "themes": [
+    {
+      "id": "algebra",
+      "name": "Álgebra",
+      "questions": [
+        {
+          "id": "a1",
+          "difficulty": "Beginner",
+          "text": "Qual é o valor de x na equação x + 5 = 10?",
+          "options": [
+            { "id": "o1", "text": "2" },
+            { "id": "o2", "text": "5" },
+            { "id": "o3", "text": "10" },
+            { "id": "o4", "text": "15" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "Subtraindo 5 de ambos os lados, obtemos x = 5."
+        },
+        {
+          "id": "a2",
+          "difficulty": "Intermediate",
+          "text": "Qual é o valor de x na equação 2x + 5 = 13?",
+          "options": [
+            { "id": "o1", "text": "2" },
+            { "id": "o2", "text": "4" },
+            { "id": "o3", "text": "6" },
+            { "id": "o4", "text": "8" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "Subtraindo 5 de ambos os lados, obtemos 2x = 8. Dividindo por 2, x = 4."
+        },
+        {
+          "id": "a3",
+          "difficulty": "Advanced",
+          "text": "Simplifique a expressão: 3(x - 2) + 4x - 2x.",
+          "options": [
+            { "id": "o1", "text": "5x - 6" },
+            { "id": "o2", "text": "7x - 2" },
+            { "id": "o3", "text": "x - 6" },
+            { "id": "o4", "text": "12x" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Distribuindo o 3: 3x - 6 + 4x - 2x. Combinando os termos semelhantes: (3x + 4x - 2x) - 6 = 5x - 6."
+        }
+      ]
+    },
+    {
+      "id": "geometry",
+      "name": "Geometria",
+      "questions": [
+        {
+          "id": "g1",
+          "difficulty": "Beginner",
+          "text": "Qual é a área de um quadrado de lado 4cm?",
+          "options": [
+            { "id": "o1", "text": "8 cm²" },
+            { "id": "o2", "text": "12 cm²" },
+            { "id": "o3", "text": "16 cm²" },
+            { "id": "o4", "text": "20 cm²" }
+          ],
+          "correctOptionId": "o3",
+          "explanation": "A área do quadrado é lado * lado = 4 * 4 = 16 cm²."
+        },
+        {
+          "id": "g2",
+          "difficulty": "Intermediate",
+          "text": "Qual é a área de um triângulo com base 6cm e altura 4cm?",
+          "options": [
+            { "id": "o1", "text": "10 cm²" },
+            { "id": "o2", "text": "12 cm²" },
+            { "id": "o3", "text": "20 cm²" },
+            { "id": "o4", "text": "24 cm²" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "A área do triângulo é (base * altura) / 2 = (6 * 4) / 2 = 24 / 2 = 12 cm²."
+        },
+        {
+          "id": "g3",
+          "difficulty": "Advanced",
+          "text": "Num triângulo retângulo, os catetos medem 3cm e 4cm. Qual o comprimento da hipotenusa?",
+          "options": [
+            { "id": "o1", "text": "5 cm" },
+            { "id": "o2", "text": "6 cm" },
+            { "id": "o3", "text": "7 cm" },
+            { "id": "o4", "text": "8 cm" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Pelo Teorema de Pitágoras: a² = b² + c² => a² = 3² + 4² => a² = 9 + 16 = 25. Logo, a = 5 cm."
+        }
+      ]
+    },
+    {
+      "id": "set_theory",
+      "name": "Teoria de Conjuntos",
+      "questions": [
+        {
+          "id": "s1",
+          "difficulty": "Beginner",
+          "text": "O que representa A ∪ B?",
+          "options": [
+            { "id": "o1", "text": "Interseção de A e B" },
+            { "id": "o2", "text": "União de A e B" },
+            { "id": "o3", "text": "Diferença entre A e B" },
+            { "id": "o4", "text": "Complemento de A" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "O símbolo ∪ representa a união de conjuntos."
+        },
+        {
+          "id": "s2",
+          "difficulty": "Intermediate",
+          "text": "Se A = {1, 2, 3} e B = {3, 4, 5}, qual é a interseção (A ∩ B)?",
+          "options": [
+            { "id": "o1", "text": "{1, 2, 3, 4, 5}" },
+            { "id": "o2", "text": "{3}" },
+            { "id": "o3", "text": "{1, 2}" },
+            { "id": "o4", "text": "∅" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "A interseção é o conjunto de elementos que pertencem a ambos os conjuntos. Apenas o 3 está em A e em B."
+        },
+        {
+          "id": "s3",
+          "difficulty": "Advanced",
+          "text": "Seja o conjunto A = {a, b, c, d}. Quantos subconjuntos possui A?",
+          "options": [
+            { "id": "o1", "text": "8" },
+            { "id": "o2", "text": "12" },
+            { "id": "o3", "text": "16" },
+            { "id": "o4", "text": "32" }
+          ],
+          "correctOptionId": "o3",
+          "explanation": "Um conjunto com n elementos possui 2^n subconjuntos. Como n = 4, o número de subconjuntos é 2^4 = 16."
+        }
+      ]
+    }
+  ]
+}

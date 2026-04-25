@@ -1,0 +1,457 @@
+.quiz-wrapper {
+  background: #fbfbfc;
+  min-height: 100vh;
+  font-family: 'Work Sans', sans-serif;
+  color: #2a343a;
+  display: flex;
+  flex-direction: column;
+}
+
+.supportive-banner {
+  background: #dcfce7;
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #bbf7d0;
+}
+
+.banner-icon {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #14532d;
+  margin: 0 0 4px 0;
+}
+
+.banner-text p {
+  font-size: 13px;
+  color: #166534;
+  margin: 0;
+}
+
+.quiz-main {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 48px 5vw;
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-header {
+  margin-bottom: 48px;
+}
+
+.chapter-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0060ad;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.quiz-header h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #2a343a;
+  margin: 0 0 16px 0;
+  letter-spacing: -1px;
+}
+
+.quiz-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.quiz-progress-bg {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: #22c55e;
+  border-radius: 9999px;
+  transition: width 0.3s;
+}
+
+.quiz-progress-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #566167;
+}
+
+/* Grid Layouts */
+.quiz-content-grid {
+  display: grid;
+  gap: 32px;
+  margin-bottom: 48px;
+  transition: all 0.3s;
+}
+
+.quiz-content-grid.bento-active {
+  grid-template-columns: 1.5fr 1fr;
+}
+
+.quiz-content-grid.centered-active {
+  grid-template-columns: 1fr;
+}
+
+/* Problem Section */
+.problem-section {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.problem-badge {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0060ad;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+
+.problem-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #2a343a;
+  margin: 0 0 40px 0;
+  line-height: 1.4;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.option-btn {
+  background: #f8fafc;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.option-btn:hover {
+  background: #f1f5f9;
+}
+
+.option-btn.selected {
+  background: #0060ad;
+  box-shadow: 0 8px 24px rgba(0, 96, 173, 0.2);
+}
+
+.opt-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2a343a;
+}
+
+.option-btn.selected .opt-text {
+  color: #ffffff;
+}
+
+.opt-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-btn.selected .opt-circle {
+  border-color: #ffffff;
+  background: transparent;
+}
+
+/* Problem Actions */
+.problem-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 32px;
+}
+
+.btn-previous {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #566167;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-previous:hover {
+  color: #2a343a;
+}
+
+.right-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.btn-save {
+  background: none;
+  border: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #566167;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background: #e2e8f0;
+  color: #94a3b8;
+  border: none;
+  border-radius: 9999px;
+  padding: 14px 32px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: not-allowed;
+  transition: all 0.2s;
+}
+
+.btn-submit.active {
+  background: #0060ad;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 96, 173, 0.2);
+}
+
+.btn-submit.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 96, 173, 0.3);
+}
+
+/* Support Section */
+.support-section {
+  height: 100%;
+}
+
+.support-card {
+  background: #ccfbf1;
+  border-radius: 24px;
+  padding: 40px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(20, 184, 166, 0.2);
+}
+
+.support-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.support-header h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f766e;
+  margin: 0;
+}
+
+.support-desc {
+  font-size: 15px;
+  color: #0f766e;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+.support-hint-box {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 15px;
+  color: #0f766e;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.support-hint-box strong {
+  background: #ffffff;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.support-actions {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-explain {
+  background: #0f766e;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-dismiss {
+  background: rgba(255, 255, 255, 0.6);
+  color: #0f766e;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bg-bulb {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: rgba(20, 184, 166, 0.1);
+  transform: rotate(15deg);
+  z-index: 0;
+}
+
+/* Bottom Pills */
+.bottom-pill-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.pill-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2a343a;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pill-btn:hover {
+  background: #f1f5f9;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .quiz-content-grid.bento-active {
+    grid-template-columns: 1fr;
+  }
+  .quiz-content-grid.centered-active {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz-main {
+    padding: 24px;
+  }
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  .problem-actions {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .right-actions {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .btn-submit {
+    width: 100%;
+  }
+  .quiz-header h1 {
+    font-size: 28px;
+  }
+  .problem-text {
+    font-size: 20px;
+  }
+  .supportive-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px;
+  }
+  .problem-section {
+    padding: 24px;
+  }
+}

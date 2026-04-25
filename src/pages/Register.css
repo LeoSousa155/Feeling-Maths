@@ -1,0 +1,220 @@
+/* Reuses login-wrapper, login-header, logo, login-main, login-right,
+   form-header, input-group, input-wrapper, input-icon, login-btn,
+   signup-prompt, login-footer, footer-* from Login.css */
+
+/* Layout — mirror of login-content but form on left, visual on right */
+.reg-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  max-width: 1280px;
+  width: 100%;
+  height: 100%;
+  max-height: 85vh;
+  align-items: center;
+}
+
+/* Security note under the form */
+.reg-security-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2vh;
+  padding: 0 4px;
+}
+
+.reg-security-note svg {
+  color: #566167;
+  flex-shrink: 0;
+}
+
+.reg-security-note span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  color: #566167;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Right side — visual panel */
+.reg-visual-side {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Floating "Stress-free" badge */
+.reg-stress-badge {
+  position: absolute;
+  top: 0;
+  right: -16px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 14px 20px;
+  box-shadow: 0 20px 40px rgba(42, 52, 58, 0.06);
+  animation: floatBadge 3s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.reg-stress-badge span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #006a6c;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* Visual card (chalkboard) */
+.reg-visual-card {
+  width: 100%;
+  border-radius: 32px;
+  overflow: hidden;
+  height: 72vh;
+  max-height: 620px;
+  box-shadow: 0 25px 50px -12px rgba(0, 96, 173, 0.12);
+  position: relative;
+}
+
+/* Chalkboard background */
+.reg-chalkboard {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #0a1f3a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+.chalk-f {
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+  text-align: center;
+  opacity: 0.65;
+}
+
+.chalk-f.sm {
+  font-size: 20px;
+  opacity: 0.45;
+}
+
+.chalk-f.md {
+  font-size: 24px;
+  opacity: 0.5;
+}
+
+/* Glass overlay — community */
+.reg-glass-overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.reg-overlay-icon {
+  width: 44px;
+  height: 44px;
+  background: #0060ad;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reg-overlay-text h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #2a343a;
+  letter-spacing: -0.5px;
+  margin: 0 0 6px 0;
+}
+
+.reg-overlay-text p {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  color: #566167;
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+}
+
+/* Avatar stack */
+.reg-avatar-stack {
+  display: flex;
+}
+
+.reg-av {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  border: 2px solid white;
+  margin-left: -10px;
+  flex-shrink: 0;
+}
+
+.reg-av:first-child {
+  margin-left: 0;
+}
+
+.reg-av-count {
+  background: #0060ad;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .reg-content {
+    grid-template-columns: 1fr;
+    max-height: none;
+    overflow-y: auto;
+    gap: 32px;
+    padding: 24px 0;
+  }
+
+  .reg-visual-side {
+    height: 360px;
+    order: -1;
+  }
+
+  .reg-visual-card {
+    height: 100%;
+    max-height: 360px;
+  }
+
+  .reg-stress-badge {
+    top: -16px;
+    right: 0;
+  }
+}

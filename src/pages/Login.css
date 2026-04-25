@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Work+Sans:wght@400;500&display=swap');
+
+.login-wrapper {
+  background: #f5f7f9;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrolling */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Work Sans', sans-serif;
+  color: #2a343a;
+}
+
+.login-header {
+  padding: 2vh 32px;
+  width: 100%;
+  flex-shrink: 0;
+  max-width: 1536px;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #0060ad;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.2rem, 2vh, 24px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.login-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32px;
+  min-height: 0; /* Important for flex children to not overflow */
+}
+
+.login-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  max-width: 1280px;
+  width: 100%;
+  height: 100%;
+  max-height: 85vh; /* Ensure it stays within bounds */
+  align-items: center;
+}
+
+/* Left Side */
+.login-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  box-shadow: 0px 25px 50px -12px rgba(0, 96, 173, 0.1);
+  margin-bottom: 3vh;
+  margin-top: auto;
+}
+
+.portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  border-radius: 12px;
+}
+
+
+
+.quote-container {
+  margin-bottom: 2vh;
+}
+
+.quote-container h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.4rem, 2.8vh, 30px);
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.25;
+  margin: 0 0 1vh 0;
+}
+
+.author {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(10px, 1.2vh, 14px);
+  font-weight: 700;
+  color: #0060ad;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.mindfulness-tip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #eef4fa;
+  padding: 2vh 24px;
+  border-radius: 12px;
+  margin-bottom: auto;
+}
+
+.tip-icon-bg {
+  background: #83fba5;
+  width: 42px;
+  height: 48px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tip-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.tip-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #006e36;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.tip-content p {
+  font-family: 'Work Sans', sans-serif;
+  font-size: clamp(12px, 1.4vh, 14px);
+  color: #566167;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Right Side */
+.login-right {
+  background: #ffffff;
+  border: 1px solid rgba(169, 179, 187, 0.1);
+  border-radius: 32px;
+  padding: clamp(24px, 4vh, 49px);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 488px;
+  margin: auto 0;
+}
+
+.form-header h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(24px, 3.5vh, 36px);
+  font-weight: 800;
+  color: #2a343a;
+  letter-spacing: -0.9px;
+  margin: 0 0 8px 0;
+  line-height: 1.1;
+}
+
+.form-header p {
+  font-size: clamp(13px, 1.6vh, 16px);
+  color: #566167;
+  margin: 0 0 3vh 0;
+}
+
+.input-group {
+  margin-bottom: 2vh;
+}
+
+.input-group label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(12px, 1.4vh, 14px);
+  font-weight: 600;
+  color: #2a343a;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.label-row label {
+  margin-bottom: 0;
+}
+
+.forgot-password {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(11px, 1.2vh, 12px);
+  font-weight: 500;
+  color: #0060ad;
+  text-decoration: none;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  color: rgba(114, 124, 131, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  width: 100%;
+  background: #e7eff5;
+  border: none;
+  border-radius: 12px;
+  padding: clamp(12px, 1.8vh, 18px) 16px clamp(12px, 1.8vh, 18px) 48px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: clamp(13px, 1.6vh, 16px);
+  color: #2a343a;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-wrapper input::placeholder {
+  color: rgba(114, 124, 131, 0.6);
+}
+
+.login-btn {
+  width: 100%;
+  background: #0060ad;
+  color: #f8f8ff;
+  border: none;
+  border-radius: 9999px;
+  padding: clamp(12px, 1.8vh, 16px);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(14px, 1.6vh, 16px);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0px 10px 15px -3px rgba(0, 96, 173, 0.2), 0px 4px 6px -4px rgba(0, 96, 173, 0.2);
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 12px 20px -3px rgba(0, 96, 173, 0.3);
+}
+
+.signup-prompt {
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(12px, 1.4vh, 14px);
+  font-weight: 500;
+  color: #0060ad;
+  margin-bottom: 2.5vh;
+}
+
+.signup-prompt a {
+  color: #0060ad;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin-bottom: 2.5vh;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(169, 179, 187, 0.2);
+  z-index: 1;
+}
+
+.divider span {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  padding: 0 16px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #727c83;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.social-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(169, 179, 187, 0.3);
+  border-radius: 12px;
+  padding: clamp(10px, 1.4vh, 13px) 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(12px, 1.4vh, 14px);
+  font-weight: 600;
+  color: #566167;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.social-btn:hover {
+  background: rgba(169, 179, 187, 0.05);
+}
+
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Footer */
+.login-footer {
+  background: #eef2f5;
+  border-top: 1px solid #dee2e6;
+  padding: 3vh 32px;
+  flex-shrink: 0;
+}
+
+.footer-content {
+  max-width: 1536px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(14px, 1.8vh, 18px);
+  font-weight: 700;
+  color: #0060ad;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2vw;
+}
+
+.footer-links a {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(10px, 1.2vh, 12px);
+  font-weight: 400;
+  color: #94a3b8;
+  letter-spacing: 1.2px;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.footer-copyright {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(10px, 1.2vh, 12px);
+  font-weight: 400;
+  color: #94a3b8;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 900px) {
+  .login-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    overflow-y: auto; /* Allow scrolling on mobile if needed */
+    max-height: none;
+  }
+  
+  .login-wrapper {
+    height: auto;
+    overflow: auto;
+  }
+
+  .login-left {
+    padding: 20px 0;
+  }
+  
+  .image-container {
+    max-width: 300px;
+    margin: 0 auto 24px auto;
+  }
+
+  .login-right {
+    padding: 32px 24px;
+    margin-bottom: 24px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
