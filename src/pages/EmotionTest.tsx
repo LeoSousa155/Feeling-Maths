@@ -20,11 +20,18 @@ export default function EmotionTest() {
         fearful: { emoji: '😨', color: '#FF6347', label: 'Assustado' },
         disgusted: { emoji: '🤢', color: '#228B22', label: 'Nojento' },
         neutral: { emoji: '😐', color: '#808080', label: 'Neutro' },
+        frustrated: { emoji: '😤', color: '#FFA500', label: 'Frustrado' },
     };
 
-    // Obter emoção dominante
+    // Obter emoção dominante (com suporte a frustrado)
     const getDominantEmotion = (): keyof typeof emotionConfig => {
         if (!emotion) return 'neutral';
+
+        // ✅ Frustrado = alto angry + alto sad (quando tenta resolver algo e fica irritado/triste)
+        const frustration = emotion.angry + emotion.sad;
+        if (frustration > 1.2) {
+            return 'frustrated';
+        }
 
         const emotions = Object.entries(emotion);
         const dominant = emotions.reduce((prev, current) =>
@@ -58,8 +65,46 @@ export default function EmotionTest() {
         );
     };
 
+    // ✅ Renderiza barra de frustração
+    const renderFrustratedBar = () => {
+        if (!emotion) return null;
+
+        const frustration = emotion.angry + emotion.sad;
+        const frustrationPercentage = Math.round(frustration * 50); // Converter para percentagem (max 200%)
+        const config = emotionConfig.frustrated;
+
+        return (
+            <div key="frustrated" className="emotion-bar-container">
+                <div className="emotion-label">
+                    <span className="emotion-emoji">{config.emoji}</span>
+                    <span className="emotion-name">{config.label}</span>
+                </div>
+                <div className="emotion-bar-wrapper">
+                    <div
+                        className="emotion-bar"
+                        style={{
+                            width: `${Math.min(frustrationPercentage, 100)}%`,
+                            backgroundColor: config.color,
+                        }}
+                    />
+                    <span className="emotion-percentage">{Math.min(frustrationPercentage, 100)}%</span>
+                </div>
+            </div>
+        );
+    };
+
     const dominantEmotionKey = getDominantEmotion();
     const dominantConfig = emotionConfig[dominantEmotionKey];
+
+    // ✅ Mostrar mensagem de suporte se frustrado
+    const getFrustrationMessage = (): string | null => {
+        if (dominantEmotionKey === 'frustrated') {
+            return 'Vejo que está frustrado! Tente fazer uma pausa curta ou peça uma dica. 💪';
+        }
+        return null;
+    };
+
+    const frustrationMessage = getFrustrationMessage();
 
     return (
         <div className="emotion-detector-container">
@@ -78,6 +123,13 @@ export default function EmotionTest() {
                 <div className="loading-message">
                     <p>Carregando modelos de IA...</p>
                     <div className="spinner"></div>
+                </div>
+            )}
+
+            {/* ✅ Mensagem de Frustração */}
+            {frustrationMessage && (
+                <div className="frustration-alert">
+                    <p>{frustrationMessage}</p>
                 </div>
             )}
 
@@ -130,6 +182,10 @@ export default function EmotionTest() {
                         <h3>Análise Detalhada</h3>
                         {emotion ? (
                             <div className="bars-container">
+                                {/* ✅ Renderiza frustrado primeiro */}
+                                {renderFrustratedBar()}
+
+                                {/* Depois as emoções normais */}
                                 {Object.entries(emotion).map(([emotionName, value]) =>
                                     renderEmotionBar(emotionName as keyof EmotionState, value)
                                 )}
@@ -149,6 +205,7 @@ export default function EmotionTest() {
                     <li>📍 Requer permissão de câmara</li>
                     <li>⚡ Atualização a cada 500ms</li>
                     <li>🔒 Dados não são armazenados</li>
+                    <li>😤 "Frustrado" = Irritado + Triste (quando tenta resolver algo)</li>
                 </ul>
             </div>
         </div>

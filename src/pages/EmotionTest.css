@@ -310,6 +310,37 @@
     font-size: 0.95rem;
 }
 
+/* Frustration Alert */
+.frustration-alert {
+    background-color: #FFA500;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    text-align: center;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.frustration-alert p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .emotion-content {
