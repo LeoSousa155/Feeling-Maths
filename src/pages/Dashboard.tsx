@@ -18,9 +18,10 @@ type DashboardProps = {
   onNavigateToProfile: () => void;
   onNavigateToExercises: () => void;
   onNavigateToTheory: () => void;
+  onNavigateToEmotionTest: () => void;
 };
 
-export default function Dashboard({ user, progress, streak, onSelectTheme, onNavigateToProfile, onNavigateToExercises, onNavigateToTheory }: DashboardProps) {
+export default function Dashboard({ user, progress, streak, onSelectTheme, onNavigateToProfile, onNavigateToExercises, onNavigateToTheory, onNavigateToEmotionTest }: DashboardProps) {
   // Calculate dynamic stats
   let totalCompleted = 0;
   let highestMastery = { name: 'None yet', percentage: 0 };
@@ -67,6 +68,25 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
           <p className="welcome-subtitle">
             Take a deep breath. Today is a beautiful day to unravel the mysteries of mathematics at your own pace.
           </p>
+
+
+          {/* ✅ Botão de Teste de Emoções */}
+          <button
+              onClick={() => onNavigateToEmotionTest?.()}
+              style={{
+                marginTop: '20px',
+                padding: '10px 20px',
+                backgroundColor: '#667eea',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontSize: '1rem',
+                fontWeight: '600'
+              }}
+          >
+            🎭 Teste de Emoções
+          </button>
         </div>
 
         <div className="top-cards">

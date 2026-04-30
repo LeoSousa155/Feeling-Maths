@@ -12,6 +12,7 @@ import Quiz from './pages/Quiz';
 import Completion from './pages/Completion';
 import TheoryHub from './pages/TheoryHub';
 import TheoryLesson from './pages/TheoryLesson';
+import EmotionTest from './pages/EmotionTest';
 
 type User = {
   name: string;
@@ -30,7 +31,7 @@ function App() {
   const [user, setUser] = useState<User | null>(null);
   const [currentTheme, setCurrentTheme] = useState<string | null>(null);
   const [progress, setProgress] = useState<Progress>({});
-  const [activeView, setActiveView] = useState<'dashboard' | 'profile' | 'exercises' | 'theory-hub' | 'theory-lesson'>('dashboard');
+  const [activeView, setActiveView] = useState<'dashboard' | 'profile' | 'exercises' | 'theory-hub' | 'theory-lesson' | 'emotion-test'>('dashboard');
   const [currentTheory, setCurrentTheory] = useState<string | null>(null);
   const [difficulty, setDifficulty] = useState<'Beginner'|'Intermediate'|'Advanced'>('Intermediate');
   
@@ -130,6 +131,11 @@ function App() {
     );
   }
 
+    // Emotion Test Screen
+    if (activeView === 'emotion-test') {
+        return <EmotionTest />;
+    }
+
   // Theory Hub Screen
   if (activeView === 'theory-hub') {
     return (
@@ -177,6 +183,7 @@ function App() {
         onNavigateToProfile={() => setActiveView('profile')}
         onNavigateToExercises={() => setActiveView('exercises')}
         onNavigateToTheory={() => setActiveView('theory-hub')}
+        onNavigateToEmotionTest={() => setActiveView('emotion-test')}
         onSelectTheme={(themeId) => {
           setCurrentTheme(themeId);
           setQuizStatus({status: 'playing', score: 0});
@@ -213,7 +220,7 @@ function App() {
       }} 
       onNavigateToProfile={() => setActiveView('profile')}
       onNavigateToExercises={() => setActiveView('exercises')}
-      onNavigateToTheory={() => setActiveView('theory-hub')}
+      onNavigateToEmotionTest={() => setActiveView('emotion-test')}
     />
   );
 }
