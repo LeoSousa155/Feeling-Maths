@@ -84,24 +84,31 @@
 .camera-wrapper {
     position: relative;
     width: 100%;
+    min-height: 300px;
     background: #000;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 20px;
-    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .video-feed {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
     display: block;
+    background: #000;
+}
+
+.video-feed.active {
+    background: transparent;
 }
 
 .camera-placeholder {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -111,7 +118,6 @@
     color: white;
     font-size: 1.5rem;
     font-weight: 500;
-    pointer-events: none;
 }
 
 .camera-controls {
@@ -375,9 +381,5 @@
 
     .dominant-label {
         font-size: 1.5rem;
-    }
-
-    .camera-wrapper {
-        aspect-ratio: 16 / 9;
     }
 }

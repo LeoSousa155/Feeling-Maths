@@ -16,6 +16,7 @@ interface UseEmotionDetectorReturn {
     emotion: EmotionState | null;
     loading: boolean;
     error: string | null;
+    detectionActive: boolean;
     startDetection: () => Promise<void>;
     stopDetection: () => void;
 }
@@ -25,6 +26,7 @@ export function useEmotionDetector(): UseEmotionDetectorReturn {
     const [emotion, setEmotion] = useState<EmotionState | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [detectionActive, setDetectionActive] = useState(false);
     const detectionIntervalRef = useRef<number | null>(null);
     const streamRef = useRef<MediaStream | null>(null);
 
@@ -52,43 +54,52 @@ export function useEmotionDetector(): UseEmotionDetectorReturn {
 
             if (videoRef.current) {
                 videoRef.current.srcObject = stream;
+                setDetectionActive(true);
+                setLoading(false);
 
-                videoRef.current.onloadedmetadata = () => {
-                    videoRef.current?.play();
-                    setLoading(false);
-
-                    if (detectionIntervalRef.current) {
-                        clearInterval(detectionIntervalRef.current);
+                // Esperar que o vídeo comece a reproduzir
+                await new Promise((resolve) => {
+                    if (videoRef.current) {
+                        videoRef.current.onloadedmetadata = () => {
+                            videoRef.current?.play().catch(err => console.error('Erro ao reproduzir:', err));
+                            resolve(null);
+                        };
                     }
+                });
 
-                    detectionIntervalRef.current = setInterval(async () => {
-                        if (
-                            videoRef.current &&
-                            videoRef.current.readyState === 4
-                        ) {
-                            try {
-                                const detections = await faceapi
-                                    .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
-                                    .withFaceLandmarks()
-                                    .withFaceExpressions();
+                // Iniciar detecção periódica
+                if (detectionIntervalRef.current) {
+                    clearInterval(detectionIntervalRef.current);
+                }
 
-                                if (detections.length > 0) {
-                                    setEmotion(detections[0].expressions as EmotionState);
-                                } else {
-                                    setEmotion(null);
-                                }
-                            } catch (err) {
-                                console.error('Erro na detecção:', err);
+                detectionIntervalRef.current = setInterval(async () => {
+                    if (
+                        videoRef.current &&
+                        videoRef.current.readyState === 4
+                    ) {
+                        try {
+                            const detections = await faceapi
+                                .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
+                                .withFaceLandmarks()
+                                .withFaceExpressions();
+
+                            if (detections.length > 0) {
+                                setEmotion(detections[0].expressions as EmotionState);
+                            } else {
+                                setEmotion(null);
                             }
+                        } catch (err) {
+                            console.error('Erro na detecção:', err);
                         }
-                    }, 500);
-                };
+                    }
+                }, 500);
             }
         } catch (err) {
             const errorMessage =
                 err instanceof Error ? err.message : 'Erro ao inicializar câmara';
             setError(errorMessage);
             setLoading(false);
+            setDetectionActive(false);
             console.error('Erro ao inicializar detecção de emoções:', err);
         }
     };
@@ -110,6 +121,7 @@ export function useEmotionDetector(): UseEmotionDetectorReturn {
 
         setEmotion(null);
         setLoading(false);
+        setDetectionActive(false);
     };
 
     useEffect(() => {
@@ -123,6 +135,7 @@ export function useEmotionDetector(): UseEmotionDetectorReturn {
         emotion,
         loading,
         error,
+        detectionActive,
         startDetection,
         stopDetection,
     };

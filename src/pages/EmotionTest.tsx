@@ -7,6 +7,7 @@ export default function EmotionTest() {
         emotion,
         loading,
         error,
+        detectionActive,
         startDetection,
         stopDetection,
     } = useEmotionDetector();
@@ -23,11 +24,9 @@ export default function EmotionTest() {
         frustrated: { emoji: '😤', color: '#FFA500', label: 'Frustrado' },
     };
 
-    // Obter emoção dominante (com suporte a frustrado)
     const getDominantEmotion = (): keyof typeof emotionConfig => {
         if (!emotion) return 'neutral';
 
-        // ✅ Frustrado = alto angry + alto sad (quando tenta resolver algo e fica irritado/triste)
         const frustration = emotion.angry + emotion.sad;
         if (frustration > 1.2) {
             return 'frustrated';
@@ -65,12 +64,11 @@ export default function EmotionTest() {
         );
     };
 
-    // ✅ Renderiza barra de frustração
     const renderFrustratedBar = () => {
         if (!emotion) return null;
 
         const frustration = emotion.angry + emotion.sad;
-        const frustrationPercentage = Math.round(frustration * 50); // Converter para percentagem (max 200%)
+        const frustrationPercentage = Math.round(frustration * 50);
         const config = emotionConfig.frustrated;
 
         return (
@@ -96,7 +94,6 @@ export default function EmotionTest() {
     const dominantEmotionKey = getDominantEmotion();
     const dominantConfig = emotionConfig[dominantEmotionKey];
 
-    // ✅ Mostrar mensagem de suporte se frustrado
     const getFrustrationMessage = (): string | null => {
         if (dominantEmotionKey === 'frustrated') {
             return 'Vejo que está frustrado! Tente fazer uma pausa curta ou peça uma dica. 💪';
@@ -119,14 +116,13 @@ export default function EmotionTest() {
                 </div>
             )}
 
-            {loading && (
+            {loading && !detectionActive && (
                 <div className="loading-message">
                     <p>Carregando modelos de IA...</p>
                     <div className="spinner"></div>
                 </div>
             )}
 
-            {/* ✅ Mensagem de Frustração */}
             {frustrationMessage && (
                 <div className="frustration-alert">
                     <p>{frustrationMessage}</p>
@@ -142,11 +138,13 @@ export default function EmotionTest() {
                             autoPlay
                             playsInline
                             muted
-                            className="video-feed"
+                            className={`video-feed ${detectionActive ? 'active' : ''}`}
                         />
-                        <div className="camera-placeholder">
-                            <p>📷 Câmara inativa</p>
-                        </div>
+                        {!detectionActive && (
+                            <div className="camera-placeholder">
+                                <p>📷 Câmara inativa</p>
+                            </div>
+                        )}
                     </div>
 
                     <div className="camera-controls">
@@ -182,10 +180,7 @@ export default function EmotionTest() {
                         <h3>Análise Detalhada</h3>
                         {emotion ? (
                             <div className="bars-container">
-                                {/* ✅ Renderiza frustrado primeiro */}
                                 {renderFrustratedBar()}
-
-                                {/* Depois as emoções normais */}
                                 {Object.entries(emotion).map(([emotionName, value]) =>
                                     renderEmotionBar(emotionName as keyof EmotionState, value)
                                 )}
@@ -205,7 +200,7 @@ export default function EmotionTest() {
                     <li>📍 Requer permissão de câmara</li>
                     <li>⚡ Atualização a cada 500ms</li>
                     <li>🔒 Dados não são armazenados</li>
-                    <li>😤 "Frustrado" = Irritado + Triste (quando tenta resolver algo)</li>
+                    <li>😤 "Frustrado" = Irritado + Triste</li>
                 </ul>
             </div>
         </div>
