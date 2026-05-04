@@ -18,79 +18,79 @@
           },
           {
             "title": "2. Multiplicação e Divisão",
-            "desc": "Isola as variáveis ao dividir pelo coefficiente ou multiplicar pelo recíproco."
+            "desc": "Isola as variáveis ao dividir pelo coeficiente ou multiplicar pelo recíproco."
           }
         ]
       },
-      "proTip": "Think of the equals sign (=) as a pivot point of a scale. To keep the scale level, if you take 5 pounds off the left, you must take 5 pounds off the right.",
+      "proTip": "Pensa sobre o sinal de igual (=) como o centro de uma balança. Para manter a balança equilibrada, se tirares 5 kg de um do lado esquerdo, também tens que tirar do lado direito.",
       "imageInfo": {
-        "title": "LINEARITY",
-        "desc": "The graph of a first-degree equation is always a straight line."
+        "title": "LINEARIDADE",
+        "desc": "O grafico de uma equação de primeiro grau é sempre uma linha reta."
       },
       "steps": [
         {
           "number": 1,
-          "title": "Identify the Goal",
-          "desc": "We want to solve for x in the equation: 3x + 12 = 27"
+          "title": "Identifica o objetivo",
+          "desc": "Nós queremos resolver para x a equação: 3x + 12 = 27"
         },
         {
           "number": 2,
-          "title": "Subtract Constants",
-          "desc": "Subtract 12 from both sides to begin isolating the x term.",
+          "title": "Subtrai Constantes",
+          "desc": "Subtrai 12 de ambos os lados para isolarmos o termo x.",
           "equation": "3x + 12 - 12 = 27 - 12\n3x = 15"
         },
         {
           "number": 3,
-          "title": "Divide by Coefficient",
-          "desc": "Divide both sides by 3 to find the final value of x.",
+          "title": "Divide pelo coeficiente",
+          "desc": "Divide ambos os lados por 3 para encontrar o valor final de x.",
           "equation": "x = 5",
           "solved": true
         }
       ]
     },
     {
-      "id": "geometry",
+      "id": "g",
       "category": "Geometry",
       "topic": "Spatial Basics",
-      "titlePrefix": "Area & Perimeter",
-      "titleMain": "2D Shapes",
-      "subtitle": "Understand the space objects occupy and the borders that enclose them.",
+      "titlePrefix": "Área & Perimetro",
+      "titleMain": "Formas 2D",
+      "subtitle": "Entende o espaço que objetos ocupam e as bordas que os limitam.",
       "goldenRule": {
-        "text": "Perimeter is the total length of the boundary, while area measures the 2D space inside that boundary.",
-        "formulaTitle": "RECTANGLE AREA",
+        "text": "Perimetro é o comprimento total dos limites, enquanto que a área mede o espaço 2D dentro desse limite.",
+        "formulaTitle": "ÁREA RETANGULAR",
         "formula": "A = w × h",
         "rules": [
           {
-            "title": "1. Perimeter",
-            "desc": "Add all outer sides together. For a rectangle: P = 2w + 2h."
+            "title": "1. Perimetro",
+            "desc": "Adiciona todos os lados externos. Para o retângulo: P = 2w + 2h."
           },
           {
-            "title": "2. Area",
-            "desc": "Multiply the base dimensions. Units are always squared (e.g., cm²)."
+            "title": "2. Área",
+            "desc": "Multiplica pelas dimensões da base. Unidades são sempre ao quadrado (e.g., cm²)."
           }
         ]
       },
-      "proTip": "Imagine walking along a fence for perimeter, and painting the grass inside the fence for area.",
+      "proTip": "Imagina andar por uma cerca para o perimetro, e pintar a relva por dentro da cerca para a área.",
       "imageInfo": {
-        "title": "DIMENSIONS",
-        "desc": "Perimeter is 1D (length), Area is 2D (space)."
+        "title": "DIMENSÕES",
+        "desc": "Perimetro é 1D (comprimento), Área é 2D (espaço)."
       },
       "steps": [
         {
           "number": 1,
-          "title": "Identify the Shape",
-          "desc": "We have a rectangle with width 5m and height 3m."
+          "title": "Identifica a forma",
+          "desc": "Temos um retângulo com largura de 5m e altura de 3m."
         },
         {
           "number": 2,
-          "title": "Calculate Perimeter",
-          "desc": "Add all four sides: 5 + 3 + 5 + 3.",
+          "title": "Calcular o Perimetro",
+          "desc": "Adiciona os quatro lados: 5 + 3 + 5 + 3.",
           "equation": "P = 16m"
         },
         {
           "number": 3,
-          "title": "Calculate Area",
-          "desc": "Multiply width by height.",
+          "title": "Calcular a área",
+          "desc": "Multiplica a altura pela largura.",
           "equation": "A = 15m²",
           "solved": true
         }
@@ -99,77 +99,77 @@
     {
       "id": "set_theory",
       "category": "Set Theory",
-      "topic": "Logic & Collections",
-      "titlePrefix": "Unions, Intersections",
-      "titleMain": "& Venn Diagrams",
-      "subtitle": "Visualize the language of logic. Sets are the building blocks of mathematics — once you understand how collections relate to each other, patterns emerge everywhere.",
+      "topic": "Lógica & Coleções",
+      "titlePrefix": "Uniões, Interseções",
+      "titleMain": "& Diagramas de Venn",
+      "subtitle": "Visualiza a linguagem da lógica. Conjuntos são os blocos de construção da matemática - uma vez que entendas como as coleções se relacionam entre si, os padrões se aparecem em todo o lado.",
       "goldenRule": {
-        "text": "A set is a well-defined, unordered collection of distinct objects called elements. Two sets are equal if and only if they contain exactly the same elements, regardless of order.",
-        "formulaTitle": "SET NOTATION",
+        "text": "Um conjunto é uma coleção de objetos distintos não ordenados, e bem definidos chamados de elementos. Dois conjuntos são iguais apenas, e apenas se, conterem os mesmos elementos, independentemente da ordem.",
+        "formulaTitle": "NOTAÇÃO DE CONJUNTO",
         "formula": "A = { x | P(x) }",
         "rules": [
           {
-            "title": "1. Union  A ∪ B",
-            "desc": "All elements that belong to A, to B, or to both. Think 'OR'. |A ∪ B| = |A| + |B| − |A ∩ B|."
+            "title": "1. União  A ∪ B",
+            "desc": "Todos os elementos que pertencem a A, a B, ou a ambos. Pensa 'OR'. |A ∪ B| = |A| + |B| − |A ∩ B|."
           },
           {
-            "title": "2. Intersection  A ∩ B",
-            "desc": "Only elements that appear in both A and B simultaneously. Think 'AND'."
+            "title": "2. Intercepção  A ∩ B",
+            "desc": "Apenas elementos que pertençam a ambos A e B simultaniamente. Pensa 'AND'."
           },
           {
-            "title": "3. Complement  Aᶜ",
-            "desc": "All elements in the Universal Set (U) that are NOT in A. Aᶜ = U \\ A."
+            "title": "3. Complemento de  Aᶜ",
+            "desc": "Todos os elementos que estão no conjunto universal (U) que NÃO estão em A. Aᶜ = U \\ A."
           },
           {
-            "title": "4. Difference  A \\ B",
-            "desc": "Elements that are in A but not in B. Also written as A − B."
+            "title": "4. Diferença  A \\ B",
+            "desc": "Elementos que estão em A mas não em B. Também escrito como A − B."
           }
         ]
       },
-      "proTip": "The word 'AND' almost always means Intersection (∩), while 'OR' means Union (∪). Translate everyday language into set notation first — the math becomes trivial.",
+      "proTip": "A palavra 'AND' quase sempre significa Intercepção (∩), enquanto que 'OR' significa União (∪). Traduz linguagem natural para notação de conjuntos primeiro — a matemática se torna trivial.",
       "imageInfo": {
-        "title": "CARDINALITY",
-        "desc": "The number of elements in a set is its cardinality, written |A|. The empty set ∅ has cardinality 0."
+        "title": "CARDINALIDADE",
+        "desc": "O número de elementos em um conjuntos é a sua cardinalidade, escrito |A|. Um conjunto vazio ∅ tem cardinalidade 0."
       },
       "extraConcepts": [
         {
           "icon": "∅",
-          "title": "Empty Set",
-          "desc": "The set with no elements: ∅ or {}. It is a subset of every set."
+          "title": "Conjunto Vazio",
+          "desc": "Um conjunto sem elementos: ∅ ou {}. É um subconjunto de todos os conjuntos."
         },
         {
           "icon": "⊆",
-          "title": "Subset",
-          "desc": "A ⊆ B if every element of A is also in B. Every set is a subset of itself."
+          "title": "Subconjunto",
+          "desc": "A ⊆ B se todos os elementos de A também estiverem em B. Todos os conjuntos são um subconjunto de si mesmos."
         },
         {
           "icon": "×",
-          "title": "Cartesian Product",
-          "desc": "A × B is the set of all ordered pairs (a, b) where a ∈ A and b ∈ B."
+          "title": "Produto Cartesiano",
+          "desc": "A × B é um conjunto de todos os pares ordenados (a, b) onde a ∈ A e b ∈ B."
         }
       ],
       "steps": [
         {
           "number": 1,
-          "title": "Define Your Sets",
-          "desc": "Given: A = {2, 4, 6, 8, 10} and B = {1, 2, 3, 4, 5}. Identify what each set represents before operating on them."
+          "title": "Define os teus conjuntos",
+          "desc": "Dado: A = {2, 4, 6, 8, 10} e B = {1, 2, 3, 4, 5}. Identifica o que cada conjunto representa antes de operar com eles."
         },
         {
           "number": 2,
-          "title": "Find the Union  A ∪ B",
-          "desc": "Combine all unique elements from both sets. Each element appears only once.",
+          "title": "Encontra a União  A ∪ B",
+          "desc": "Combina todos os elementos únicos de ambos os conjuntos. Cada elemento aparece apenas uma vez.",
           "equation": "A ∪ B = {1, 2, 3, 4, 5, 6, 8, 10}"
         },
         {
           "number": 3,
-          "title": "Find the Intersection  A ∩ B",
-          "desc": "Identify elements that appear in BOTH sets. Scan A for elements also present in B.",
+          "title": "Encontra a interação A ∩ B",
+          "desc": "Identifica os elementos que apareçam em AMBOS os conjuntos. Procura em A por elementos que também apareçam em B.",
           "equation": "A ∩ B = {2, 4}"
         },
         {
           "number": 4,
-          "title": "Verify with the Inclusion-Exclusion Principle",
-          "desc": "Check: |A ∪ B| = |A| + |B| − |A ∩ B| = 5 + 5 − 2 = 8. Our union has 8 elements. ✓",
+          "title": "Verifica com o principio de Inclusão-Exclusão",
+          "desc": "Verifica: |A ∪ B| = |A| + |B| − |A ∩ B| = 5 + 5 − 2 = 8. A nossa união tem 8 elementos. ✓",
           "equation": "|A ∪ B| = 5 + 5 − 2 = 8",
           "solved": true
         }
