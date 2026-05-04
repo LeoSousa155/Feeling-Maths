@@ -31,13 +31,13 @@ export default function Register({ onRegister, onNavigateToLogin }: RegisterProp
           {/* Left: Form */}
           <div className="login-right" style={{ maxWidth: '488px', margin: 'auto 0' }}>
             <div className="form-header">
-              <h1>Begin Your Journey</h1>
-              <p>Create a sanctuary for your mathematical growth. No pressure, just progress.</p>
+              <h1>Começa a tua Jornada</h1>
+              <p>Cria um santuário para o teu crescimento matemático. Sem pressão, apenas progresso.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="login-form">
               <div className="input-group">
-                <label>Full Name</label>
+                <label>Nome Completo</label>
                 <div className="input-wrapper">
                   <span className="input-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -56,7 +56,7 @@ export default function Register({ onRegister, onNavigateToLogin }: RegisterProp
               </div>
 
               <div className="input-group">
-                <label>Email Address</label>
+                <label>Endereço de Email</label>
                 <div className="input-wrapper">
                   <span className="input-icon">
                     <svg width="20" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -75,7 +75,7 @@ export default function Register({ onRegister, onNavigateToLogin }: RegisterProp
               </div>
 
               <div className="input-group">
-                <label>Create Password</label>
+                <label>Criar Palavra Passe</label>
                 <div className="input-wrapper">
                   <span className="input-icon">
                     <svg width="16" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -94,19 +94,19 @@ export default function Register({ onRegister, onNavigateToLogin }: RegisterProp
               </div>
 
               <button type="submit" className="login-btn" style={{ background: 'linear-gradient(90deg, #0060ad 0%, #68abff 100%)' }}>
-                Sign Up
+                Criar
               </button>
             </form>
 
             <div className="signup-prompt">
-              Already practicing? <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToLogin(); }}>Log in here</a>
+              Já praticante? <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToLogin(); }}>Entra aqui</a>
             </div>
 
             <div className="reg-security-note">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
-              <span>YOUR DATA IS SECURED WITH ARCHITECTURAL-GRADE ENCRYPTION</span>
+              <span>OS TEUS DADOS ESTÃO SEGUROS COM ENCRIPTAÇÃO DE QUALIDADE ARQUITECTURAL</span>
             </div>
           </div>
 
@@ -120,7 +120,7 @@ export default function Register({ onRegister, onNavigateToLogin }: RegisterProp
                 <line x1="9" y1="9" x2="9.01" y2="9"/>
                 <line x1="15" y1="9" x2="15.01" y2="9"/>
               </svg>
-              <span>STRESS-FREE ZONE</span>
+              <span>ZONA SEM STRESS</span>
             </div>
 
             {/* Chalkboard visual */}
@@ -141,8 +141,8 @@ export default function Register({ onRegister, onNavigateToLogin }: RegisterProp
                   </svg>
                 </div>
                 <div className="reg-overlay-text">
-                  <h3>Join our community</h3>
-                  <p>Become part of a global collective of 40,000+ learners who prioritize cognitive clarity and emotional well-being over rote memorization.</p>
+                  <h3>Junta-te a nossa comunidade</h3>
+                  <p>Faz parte de uma comunidade global de +40,000 estudantes que priorizam a sua claridade cognitiva e bem estar emocional sobre memorização.</p>
                   <div className="reg-avatar-stack">
                     <div className="reg-av" style={{ background: '#e7eff5' }} />
                     <div className="reg-av" style={{ background: '#d9e4ec' }} />
@@ -161,13 +161,13 @@ export default function Register({ onRegister, onNavigateToLogin }: RegisterProp
         <div className="footer-content">
           <div className="footer-logo">Feeling Maths</div>
           <div className="footer-links">
-            <a href="#">PRIVACY</a>
-            <a href="#">TERMS</a>
-            <a href="#">ACCESSIBILITY</a>
-            <a href="#">RESEARCH</a>
+            <a href="#">PRIVACIDADE</a>
+            <a href="#">TERMOS</a>
+            <a href="#">ACESSIBILIDADE</a>
+            <a href="#">PESQUISA</a>
           </div>
           <div className="footer-copyright">
-            © 2024 FEELING MATHS. DESIGNED FOR COGNITIVE CLARITY.
+            © 2024 FEELING MATHS. FEITO PARA CLARIDADE COGNITIVA.
           </div>
         </div>
       </footer>

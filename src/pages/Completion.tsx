@@ -31,8 +31,8 @@ export default function Completion({ user, themeName, score, total, difficulty, 
         <div className="completion-card animate-scale-up">
           <div className="completion-icon">🎉</div>
           <h1>Theme Concluded!</h1>
-          <p className="completion-subtitle">
-            You successfully finished all <strong>{themeName}</strong> questions on <strong>{difficulty}</strong> difficulty.
+          <p className="completion-subtitle">l
+            Completaste todas as questões de <strong>{themeName}</strong> na dificuldade <strong>{difficulty}</strong>.
           </p>
 
           <div className="score-ring">
@@ -52,11 +52,11 @@ export default function Completion({ user, themeName, score, total, difficulty, 
             </svg>
           </div>
           
-          <p className="score-text">You got {score} out of {total} correct.</p>
+          <p className="score-text">Acertaste {score} de {total}!</p>
 
           <div className="completion-actions">
-            <button className="btn-secondary" onClick={onNavigateToExercises}>More Exercises</button>
-            <button className="btn-primary" onClick={onNavigateToHome}>Back to Dashboard</button>
+            <button className="btn-secondary" onClick={onNavigateToExercises}>Mais exercicios</button>
+            <button className="btn-primary" onClick={onNavigateToHome}>Voltar ao Dashboard</button>
           </div>
         </div>
       </main>

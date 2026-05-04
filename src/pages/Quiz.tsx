@@ -66,8 +66,8 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#006e36" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
           </div>
           <div className="banner-text">
-            <h4>Let's try this in a different way</h4>
-            <p>I've noticed you're working hard on this. Sometimes a fresh perspective helps!</p>
+            <h4>Vamos tentar isto numa forma diferentes</h4>
+            <p>Noteu que estás a trabalhar bastante nisto. As vezes uma prespetiva fresca ajuda!</p>
           </div>
         </div>
       )}
@@ -75,21 +75,21 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
       <main className="quiz-main">
         {/* Session Header */}
         <div className="quiz-header">
-          <span className="chapter-label">CHAPTER: {theme.name.toUpperCase()}</span>
-          <h1>Solving for Variable 'x'</h1>
+          <span className="chapter-label">CAPÍTULO: {theme.name.toUpperCase()}</span>
+          <h1>Resolve para a variável 'x'</h1>
           
           <div className="quiz-progress-row">
             <div className="quiz-progress-bg">
               <div className="quiz-progress-fill" style={{ width: `${progressPct}%` }}></div>
             </div>
-            <span className="quiz-progress-text">{progressPct}% Completed</span>
+            <span className="quiz-progress-text">{progressPct}% Completado</span>
           </div>
         </div>
 
         <div className={`quiz-content-grid ${showSupport ? 'bento-active' : 'centered-active'}`}>
           {/* Problem Section */}
           <div className="problem-section">
-            <div className="problem-badge">PROBLEM {currentIndex + 1}</div>
+            <div className="problem-badge">PROBLEMA {currentIndex + 1}</div>
             
             <h2 className="problem-text">{question.text}</h2>
 
@@ -120,7 +120,7 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
               </button>
               
               <div className="right-actions">
-                <button className="btn-save">Save for later</button>
+                <button className="btn-save">Salvar para depois</button>
                 <button className={`btn-submit ${selectedOption ? 'active' : ''}`} onClick={handleSubmit} disabled={!selectedOption}>
                   {currentIndex + 1 === questions.length ? 'Finish Theme' : 'Submit Answer'}
                 </button>
@@ -137,14 +137,14 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
                   <h3>Mindful Support</h3>
                 </div>
                 
-                <p className="support-desc">I noticed you're spending a bit of time here. Let's simplify:</p>
+                <p className="support-desc">Noteu que estás a sar um bom tempo aqui. Vamos Simplificar:</p>
                 <div className="support-hint-box">
-                  Try <strong>distributing</strong> the numbers through the parenthesis first, or <strong>subtracting</strong> from both sides.
+                  Tenta <strong>distribuir</strong> os números pelos parênteses primeiro, ou <strong>subtrair</strong> nos dois lados.
                 </div>
 
                 <div className="support-actions">
-                  <button className="btn-explain">Explain Step 1</button>
-                  <button className="btn-dismiss" onClick={() => setShowSupport(false)}>I'm okay, thanks</button>
+                  <button className="btn-explain">Explicar passo 1</button>
+                  <button className="btn-dismiss" onClick={() => setShowSupport(false)}>Estou ok, obrigado</button>
                 </div>
 
                 <svg className="bg-bulb" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 21h6"></path><path d="M10 21v-2a4 4 0 0 1-4-4v-1a7 7 0 1 1 12 0v1a4 4 0 0 1-4 4v2"></path></svg>
@@ -157,11 +157,11 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
         <div className="bottom-pill-actions">
           <button className="pill-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-            Review Theory
+            Rever Teoria
           </button>
           <button className="pill-btn" onClick={() => setShowSupport(true)}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 21h6"></path><path d="M10 21v-2a4 4 0 0 1-4-4v-1a7 7 0 1 1 12 0v1a4 4 0 0 1-4 4v2"></path></svg>
-            Show Hint
+            Mostrar Dica
           </button>
         </div>
       </main>

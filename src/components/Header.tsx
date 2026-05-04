@@ -15,9 +15,9 @@ export default function Header({ user, activePath = 'home', onNavigateToHome, on
       <div className="header-left">
         <div className="header-logo">Feeling Maths</div>
         <nav className="header-nav">
-          <button className={`nav-btn ${activePath === 'home' ? 'active' : ''}`} onClick={onNavigateToHome}>Home</button>
-          <button className={`nav-btn ${activePath === 'exercises' ? 'active' : ''}`} onClick={onNavigateToExercises}>Exercises</button>
-          <button className={`nav-btn ${activePath === 'theory' ? 'active' : ''}`} onClick={onNavigateToTheory}>Theory</button>
+          <button className={`nav-btn ${activePath === 'home' ? 'active' : ''}`} onClick={onNavigateToHome}>Página inicial</button>
+          <button className={`nav-btn ${activePath === 'exercises' ? 'active' : ''}`} onClick={onNavigateToExercises}>Exercícios</button>
+          <button className={`nav-btn ${activePath === 'theory' ? 'active' : ''}`} onClick={onNavigateToTheory}>Teoria</button>
         </nav>
       </div>
       

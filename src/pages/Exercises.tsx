@@ -34,10 +34,10 @@ export default function Exercises({ user, progress, onNavigateToHome, onNavigate
     return {
       id: theme.id,
       name: theme.name,
-      desc: idx === 0 ? "Master the core principles of number theory and operations." : 
-            idx === 1 ? "Unveiling the power of abstract symbols and relationships." : 
-            "Parabolas, quadratics, and the beauty of symmetry.",
-      badge: idx === 0 ? "FOUNDATION" : idx === 2 ? "INTERMEDIATE" : null,
+      desc: idx === 0 ? "Domine os principios base da teoria dos numeros e operações." :
+            idx === 1 ? "Revelando o poder dos simbolos abstratos e relações." :
+            "Parábolas, Quadráticas, e o poder da simetria.",
+      badge: idx === 0 ? "FUNDAMENTOS" : idx === 2 ? "INTERMÉDIO" : null,
       pct,
       completed: p.completed,
       total: p.total,
@@ -58,8 +58,8 @@ export default function Exercises({ user, progress, onNavigateToHome, onNavigate
 
       <main className="exercises-main">
         <div className="exercises-header-text">
-          <h1>Math Journey</h1>
-          <p>Focus on the process, not just the result. Your mindful approach leads to deeper mastery.</p>
+          <h1>Jornada Matemática</h1>
+          <p>Foca-te no processo, não no resultado. Uma abordagem consciente leva a um dominio mais profundo.</p>
         </div>
 
         <div className="exercises-grid">
@@ -85,7 +85,7 @@ export default function Exercises({ user, progress, onNavigateToHome, onNavigate
                       <div className="bubble"></div>
                       <div className="bubble"></div>
                     </div>
-                    <span>42 active learners</span>
+                    <span>42 alunos ativos</span>
                   </div>
                   <div className="progress-bar-bg">
                     <div className="progress-bar-fill" style={{ width: `${theme.pct}%` }}></div>
@@ -101,7 +101,7 @@ export default function Exercises({ user, progress, onNavigateToHome, onNavigate
                     <div className={`progress-bar-fill fill-${theme.styleType}`} style={{ width: `${theme.pct}%` }}></div>
                   </div>
                   <button className={`btn-continue btn-${theme.styleType}`} onClick={() => onSelectTheme(theme.id)}>
-                    Continue Learning
+                    Continuar a Aprender
                   </button>
                 </>
               )}
@@ -117,14 +117,13 @@ export default function Exercises({ user, progress, onNavigateToHome, onNavigate
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             </div>
             <h2>Derivatives</h2>
-            <p className="ex-desc">Rates of change and the language of motion.</p>
+            <p className="ex-desc">Taxas de mudança e a linguagem de movimento.</p>
             
             <div className="locked-info-box">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-              <span>Reach Level 6 to unlock or earn "Mindful Focus".</span>
+              <span>Atinge o Nível 6 para desbloquear ou obtem "Concentração consciente".</span>
             </div>
-            
-            <button className="btn-locked">View Requirements</button>
+            <button className="btn-locked">Ver Requisitos</button>
           </div>
 
           {/* Upcoming Content 1 */}
@@ -132,8 +131,8 @@ export default function Exercises({ user, progress, onNavigateToHome, onNavigate
             <div className="ex-icon grey">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             </div>
-            <h3>Upcoming Content</h3>
-            <p>Integral Calculus & Vector Fields</p>
+            <h3>Conteúdo futuro</h3>
+            <p>Cálculo Integral & Campos Vectoriais</p>
           </div>
 
           {/* Upcoming Content 2 */}
@@ -141,10 +140,9 @@ export default function Exercises({ user, progress, onNavigateToHome, onNavigate
             <div className="ex-icon grey">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M21 12H3"></path><path d="M12 3v18"></path></svg>
             </div>
-            <h3>Probability Theory</h3>
-            <p>Unlocked at Architect Level 7</p>
+            <h3>Teoria da Probabilidade</h3>
+            <p>Desbloqueado ao Nível de Arquiteto 7</p>
           </div>
-
         </div>
       </main>
     </div>

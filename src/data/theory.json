@@ -3,22 +3,22 @@
     {
       "id": "algebra",
       "category": "Algebra",
-      "topic": "Foundations",
-      "titlePrefix": "First-Degree",
-      "titleMain": "Linear Equations",
-      "subtitle": "The foundation of algebraic reasoning. Learn to balance the scales and isolate the unknown variable with precision and calm.",
+      "topic": "Fundamentos",
+      "titlePrefix": "Primeiro Grau",
+      "titleMain": "Equações Lineares",
+      "subtitle": "O fundamento do raciocínio de algebra. Aprende a equilibrar as escalas e isola as variáveis desconhecidas com precisão e calma.",
       "goldenRule": {
-        "text": "A linear equation is a statement that two expressions are equal. Whatever operation you perform on one side of the equation must be performed on the other to maintain this equality.",
-        "formulaTitle": "GENERAL FORM",
+        "text": "Uma equação linear é uma declaração onde ambas as expressões são iguais. Qualquer operação feita em um lado deve ser feito no outro para poder manter este equilibrio.",
+        "formulaTitle": "FORMA GERAL",
         "formula": "ax + b = c",
         "rules": [
           {
-            "title": "1. Addition & Subtraction",
-            "desc": "Move constant terms to the other side by applying the opposite operation."
+            "title": "1. Adição e SubtraçÃo",
+            "desc": "Move constantes para o outro lado ao aplicar a operação inversa."
           },
           {
-            "title": "2. Multiplication & Division",
-            "desc": "Isolate the variable by dividing the coefficient or multiplying the reciprocal."
+            "title": "2. Multiplicação e Divisão",
+            "desc": "Isola as variáveis ao dividir pelo coefficiente ou multiplicar pelo recíproco."
           }
         ]
       },

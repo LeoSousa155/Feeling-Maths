@@ -84,7 +84,7 @@ export default function TheoryLesson({ user, themeId, onNavigateToHome, onNaviga
         <div className="theory-bento-grid">
           {/* Main Concept Card */}
           <div className="theory-card golden-rule-card animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            <h2>{isSetTheory ? 'Fundamental Concepts' : 'The Golden Rule: Balance'}</h2>
+            <h2>{isSetTheory ? 'Fundamental Concepts' : 'A Regra de Ouro: Equilibrio'}</h2>
             <div className="rule-intro">
               <div className="icon-badge">
                 {isSetTheory ? (
@@ -122,7 +122,7 @@ export default function TheoryLesson({ user, themeId, onNavigateToHome, onNaviga
               <svg className="bulb-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M9 21h6"/><path d="M10 21v-2a4 4 0 0 1-4-4v-1a7 7 0 1 1 12 0v1a4 4 0 0 1-4 4v2"/>
               </svg>
-              <h2>Pro Tip</h2>
+              <h2>Dica</h2>
               <p>{theme.proTip}</p>
             </div>
 
@@ -140,7 +140,7 @@ export default function TheoryLesson({ user, themeId, onNavigateToHome, onNaviga
         {/* Extra Concepts Section — only for Set Theory */}
         {theme.extraConcepts && (
           <div className="extra-concepts-section animate-fade-in" style={{ animationDelay: '0.35s' }}>
-            <h2 className="section-title">Key Notation</h2>
+            <h2 className="section-title">Notação Chave</h2>
             <div className="extra-concepts-grid">
               {theme.extraConcepts.map((concept: { icon: string; title: string; desc: string }, idx: number) => (
                 <div key={idx} className="extra-concept-card">
@@ -155,7 +155,7 @@ export default function TheoryLesson({ user, themeId, onNavigateToHome, onNaviga
 
         {/* Step by Step Breakdown */}
         <div className="step-by-step-section animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <h2 className="section-title">Step-by-Step Breakdown</h2>
+          <h2 className="section-title">Descrição passo a passo</h2>
 
           <div className="steps-container">
             {theme.steps.map((step: { number: number; title: string; desc: string; equation?: string; solved?: boolean }, idx: number) => (
@@ -188,10 +188,10 @@ export default function TheoryLesson({ user, themeId, onNavigateToHome, onNaviga
 
         {/* Footer Actions */}
         <div className="theory-footer animate-fade-in" style={{ animationDelay: '0.5s' }}>
-          <p>Feeling confident with {theme.titleMain.toLowerCase()}?</p>
+          <p>Sentes-te Confiante com {theme.titleMain.toLowerCase()}?</p>
           <div className="theory-actions">
             <button className="btn-secondary" onClick={onNavigateToTheoryHub}>Review Next</button>
-            <button className="btn-primary" onClick={() => onStartPractice(theme.id)}>Start Practice Exercises</button>
+            <button className="btn-primary" onClick={() => onStartPractice(theme.id)}>Começa a Praticar Exercícios</button>
           </div>
         </div>
       </main>

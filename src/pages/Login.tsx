@@ -31,7 +31,7 @@ export default function Login({ onLogin, onNavigateToRegister }: LoginProps) {
             </div>
 
             <div className="quote-container">
-              <h2>"Mathematics is the language with which God has written the universe"</h2>
+              <h2>"Matemática é a linguagem com que Deus escreveu o universo"</h2>
               <p className="author">— GALILEU GALILEI</p>
             </div>
 
@@ -45,7 +45,7 @@ export default function Login({ onLogin, onNavigateToRegister }: LoginProps) {
               </div>
               <div className="tip-content">
                 <span className="tip-title">MINDFULNESS TIP</span>
-                <p>Take a deep breath before you begin. Your potential is limitless.</p>
+                <p>Inspira profundamente antes de começar. O teu potêncial é sem fim.</p>
               </div>
             </div>
           </div>
@@ -53,8 +53,8 @@ export default function Login({ onLogin, onNavigateToRegister }: LoginProps) {
           <div className="login-right">
             <div className="login-form-container">
               <div className="form-header">
-                <h1>Welcome Back</h1>
-                <p>Ready to continue your cognitive journey?</p>
+                <h1>Bem vindo de volta</h1>
+                <p>Pronto para continuar a tua jornada cognitiva?</p>
               </div>
 
               <form onSubmit={handleSubmit} className="login-form">
@@ -71,7 +71,7 @@ export default function Login({ onLogin, onNavigateToRegister }: LoginProps) {
                 <div className="input-group">
                   <div className="label-row">
                     <label>Password</label>
-                    <a href="#" className="forgot-password">Forgot Password?</a>
+                    <a href="#" className="forgot-password">Esqueceste palavra passe?</a>
                   </div>
                   <div className="input-wrapper">
                     <span className="input-icon">
@@ -85,11 +85,11 @@ export default function Login({ onLogin, onNavigateToRegister }: LoginProps) {
               </form>
               
               <div className="signup-prompt">
-                Don't have an account? <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToRegister?.(); }}>Sign Up</a>
+                Não tens uma conta? <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToRegister?.(); }}>Criar Conta</a>
               </div>
 
               <div className="divider">
-                <span>OR CONTINUE WITH</span>
+                <span>OU CONTINUA COM</span>
               </div>
 
               <div className="social-buttons">
@@ -111,13 +111,13 @@ export default function Login({ onLogin, onNavigateToRegister }: LoginProps) {
         <div className="footer-content">
           <div className="footer-logo">Feeling Maths</div>
           <div className="footer-links">
-            <a href="#">PRIVACY</a>
-            <a href="#">TERMS</a>
-            <a href="#">ACCESSIBILITY</a>
-            <a href="#">RESEARCH</a>
+            <a href="#">PRIVACIDADE</a>
+            <a href="#">TERMOS</a>
+            <a href="#">ACESSIBILIDADE</a>
+            <a href="#">PESQUISA</a>
           </div>
           <div className="footer-copyright">
-            © 2024 FEELING MATHS. DESIGNED FOR COGNITIVE CLARITY.
+            © 2024 FEELING MATHS. FEITO PARA CLARIDADE COGNITIVA.
           </div>
         </div>
       </footer>

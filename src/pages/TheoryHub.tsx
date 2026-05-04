@@ -23,8 +23,8 @@ export default function TheoryHub({ user, onNavigateToHome, onNavigateToExercise
       />
       <main className="theory-hub-main">
         <div className="theory-hub-header animate-fade-in">
-          <h1>Theory Library</h1>
-          <p>Deepen your understanding before putting it into practice.</p>
+          <h1>Teoria de Biblioteca</h1>
+          <p>Aprofunda o teu conhecimento antes de o por em prática.</p>
         </div>
 
         <div className="theory-grid">
@@ -32,9 +32,9 @@ export default function TheoryHub({ user, onNavigateToHome, onNavigateToExercise
             <div key={theme.id} className="theory-card animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
               <div className="theory-card-icon">📚</div>
               <h2>{theme.name}</h2>
-              <p>Explore the foundational concepts and mathematical rules for {theme.name.toLowerCase()}.</p>
+              <p>Explora os conceitos fundamentais e regras matemáticas para {theme.name.toLowerCase()}.</p>
               <button className="btn-read-theory" onClick={() => onSelectTheory(theme.id)}>
-                Read Theory
+                Ler Teoria
               </button>
             </div>
           ))}

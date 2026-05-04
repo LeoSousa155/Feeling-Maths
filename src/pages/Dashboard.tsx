@@ -23,7 +23,7 @@ type DashboardProps = {
 export default function Dashboard({ user, progress, streak, onSelectTheme, onNavigateToProfile, onNavigateToExercises, onNavigateToTheory }: DashboardProps) {
   // Calculate dynamic stats
   let totalCompleted = 0;
-  let highestMastery = { name: 'None yet', percentage: 0 };
+  let highestMastery = { name: 'Nenhum ainda', percentage: 0 };
   let activeThemeData = null;
 
   for (const [themeId, data] of Object.entries(progress)) {
@@ -63,9 +63,9 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
 
       <main className="dashboard-main">
         <div className="welcome-section">
-          <h1 className="welcome-title">Welcome back, {user.name}!</h1>
+          <h1 className="welcome-title">Bem vindo de volta, {user.name}!</h1>
           <p className="welcome-subtitle">
-            Take a deep breath. Today is a beautiful day to unravel the mysteries of mathematics at your own pace.
+            Inspira fundo. Hoje está um lindo dia para descobrir os mistérios da matemática ao teu passo.
           </p>
         </div>
 
@@ -74,13 +74,13 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
           <div className="active-theme-card">
             {activeThemeData ? (
               <>
-                <div className="badge-blue">ACTIVE THEME</div>
-                <h2>Continue {activeThemeData.name}</h2>
-                <p>Mastering this topic will unlock the door to advanced calculus. You're doing great!</p>
+                <div className="badge-blue">TEMA ATIVO</div>
+                <h2>Continuar {activeThemeData.name}</h2>
+                <p>Dominar este tópico irá abrir as portas para calculo avançado. Estás a ir incrível!</p>
                 
                 <div className="progress-section">
                   <div className="progress-header">
-                    <span className="progress-label">Course Completion</span>
+                    <span className="progress-label">Completude do Curso</span>
                     <span className="progress-value">{activeThemeData.completionPercent}%</span>
                   </div>
                   <div className="progress-bar-bg">
@@ -89,18 +89,18 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
                 </div>
 
                 <button className="btn-resume" onClick={() => onSelectTheme(activeThemeData!.id)}>
-                  Resume Session
+                  Continuar Sessão
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </button>
               </>
             ) : (
               <>
-                <div className="badge-blue">GET STARTED</div>
-                <h2>Start Learning</h2>
-                <p>Select a mathematical theme below to begin your journey towards cognitive clarity.</p>
+                <div className="badge-blue">COMEÇAR</div>
+                <h2>Começar a Aprender</h2>
+                <p>Seleciona um tema matemático abaixo para começar a tua viagem para claridade cógnitiva.</p>
                 <div style={{ height: '60px' }}></div>
                 <button className="btn-resume" onClick={() => onSelectTheme(questionsData.themes[0].id)}>
-                  Start First Theme
+                  Começar o Primeiro Tema
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </button>
               </>
@@ -124,15 +124,15 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#006e36" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                 </div>
                 <div className="badge-text">
-                  <span className="b-label">State:</span>
-                  <span className="b-value">Calm<br/>& Ready</span>
+                  <span className="b-label">Estado:</span>
+                  <span className="b-value">Calmo<br/>& Preparado</span>
                 </div>
               </div>
             </div>
             
             <div className="mentor-content">
-              <h3>Mentor Insight</h3>
-              <p>"Your focus levels are optimal. You're in a great state for tackling new concepts today."</p>
+              <h3>Vista do mentor</h3>
+              <p>"Os teus níveis de foco estão ideais. Estás em um ótimo estado para aprender novos conceitos hoje."</p>
             </div>
           </div>
         </div>
@@ -144,8 +144,8 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0060ad" strokeWidth="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
             </div>
             <div className="stat-info">
-              <span className="s-label">CURRENT LEVEL</span>
-              <span className="s-value">Level {currentLevel}</span>
+              <span className="s-label">NÍVEL ATUAL</span>
+              <span className="s-value">Nível {currentLevel}</span>
             </div>
           </div>
 
@@ -154,8 +154,8 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="2"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"></path></svg>
             </div>
             <div className="stat-info">
-              <span className="s-label">LEARNING STREAK</span>
-              <span className="s-value">{streak} Days</span>
+              <span className="s-label">SÉRIE DE APRENDIZAGEM</span>
+              <span className="s-value">{streak} Dias</span>
             </div>
           </div>
 
@@ -164,7 +164,7 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </div>
             <div className="stat-info">
-              <span className="s-label">RECENT MASTERY</span>
+              <span className="s-label">DOMINIOS RECENTES</span>
               <span className="s-value">{highestMastery.name} {highestMastery.percentage > 0 && <span className="mastery-pct">({highestMastery.percentage}%)</span>}</span>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
         <div className="path-ahead-section">
           <div className="section-header">
             <h2>Path Ahead</h2>
-            <a href="#" className="view-roadmap">View Full Roadmap</a>
+            <a href="#" className="view-roadmap">Ver Roteiro Completo</a>
           </div>
 
           <div className="path-grid">
@@ -191,11 +191,11 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
                     )}
                   </div>
                   <h4>{theme.name}</h4>
-                  <p>Master mathematical concepts</p>
+                  <p>Domina Conceitos Matemáticos</p>
                   
                   {isUnlocked && (
                     <div className="path-action">
-                      Start Next 
+                      Começar o Proximo
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                   )}
