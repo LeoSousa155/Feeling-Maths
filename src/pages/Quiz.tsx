@@ -40,6 +40,8 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
   const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]);
   const [currentDifficulty, setCurrentDifficulty] = useState<'Beginner' | 'Intermediate' | 'Advanced'>('Intermediate');
   const [consecutiveCorrect, setConsecutiveCorrect] = useState(0);
+  const [isCalculusTheme, setIsCalculusTheme] = useState(false);
+  const [totalQuestions, setTotalQuestions] = useState(1);
 
   const {
     videoRef,
@@ -48,13 +50,25 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
     stopDetection,
   } = useEmotionDetector();
 
-  // Inicializar quiz com 7 perguntas começando em Intermediate
+  // Inicializar quiz: 7 para Cálculo, 1 para outros
   useEffect(() => {
-    const intermediateQuestions = allQuestions.filter(q => q.difficulty === 'Intermediate');
-    const selected = intermediateQuestions.slice(0, 7);
-    setSessionQuestions(selected);
-    setCurrentDifficulty('Intermediate');
-  }, [allQuestions]);
+    const isCalc = theme.id === 'calculus';
+    setIsCalculusTheme(isCalc);
+
+    if (isCalc) {
+      // Cálculo: 7 perguntas começando em Intermediate
+      const intermediateQuestions = allQuestions.filter(q => q.difficulty === 'Intermediate');
+      const selected = intermediateQuestions.slice(0, 7);
+      setSessionQuestions(selected);
+      setCurrentDifficulty('Intermediate');
+      setTotalQuestions(7);
+    } else {
+      // Outros temas: apenas 1 pergunta
+      const selected = allQuestions.slice(0, 1);
+      setSessionQuestions(selected);
+      setTotalQuestions(1);
+    }
+  }, [theme, allQuestions]);
 
   // Iniciar detecção de emoções ao montar
   useEffect(() => {
@@ -100,7 +114,7 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
   }
 
   const question = sessionQuestions[currentIndex];
-  const progressPct = Math.round(((currentIndex + 1) / 7) * 100);
+  const progressPct = Math.round(((currentIndex + 1) / totalQuestions) * 100);
 
   // Obter emoção dominante
   const getDominantEmotion = (): { name: string; value: number; isPositive: boolean } => {
@@ -141,7 +155,7 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
     };
   };
 
-  // Selecionar próxima pergunta baseada em emoções, acertos e erros
+  // Selecionar próxima pergunta baseada em emoções, acertos e erros (APENAS PARA CÁLCULO)
   const getNextQuestion = (
       currentDiff: string,
       dominantEmotion: any,
@@ -189,17 +203,19 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
     setAnswered(true);
     setAnswerCorrect(isCorrect);
 
-    // Atualizar contador de acertos consecutivos
-    if (isCorrect) {
-      setConsecutiveCorrect(prev => prev + 1);
-    } else {
-      setConsecutiveCorrect(0);
+    // Atualizar contador de acertos consecutivos (apenas para Cálculo)
+    if (isCalculusTheme) {
+      if (isCorrect) {
+        setConsecutiveCorrect(prev => prev + 1);
+      } else {
+        setConsecutiveCorrect(0);
+      }
     }
 
     const dominantEmotion = getDominantEmotion();
 
-    // Mostrar notificação de dificuldade apenas se houver próximas perguntas
-    if (currentIndex + 1 < 7) {
+    // Mostrar notificação de dificuldade apenas se houver próximas perguntas E for Cálculo
+    if (isCalculusTheme && currentIndex + 1 < totalQuestions) {
       const { newDifficulty, difficultyChanged, message } = getNextQuestion(
           currentDifficulty,
           dominantEmotion,
@@ -221,7 +237,7 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
   };
 
   const handleContinue = () => {
-    if (currentIndex + 1 < 7) {
+    if (currentIndex + 1 < totalQuestions) {
       setCurrentIndex(prev => prev + 1);
     } else {
       stopDetection();
@@ -268,12 +284,12 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
               <div className="quiz-progress-bg">
                 <div className="quiz-progress-fill" style={{ width: `${progressPct}%` }}></div>
               </div>
-              <span className="quiz-progress-text">{progressPct}% Completado ({currentIndex + 1}/7)</span>
+              <span className="quiz-progress-text">{progressPct}% Completado ({currentIndex + 1}/{totalQuestions})</span>
             </div>
           </div>
 
-          {/* Notificação de dificuldade */}
-          {difficultyNotification && (
+          {/* Notificação de dificuldade (apenas para Cálculo) */}
+          {isCalculusTheme && difficultyNotification && (
               <div className={`difficulty-notification difficulty-${difficultyNotification.type}`}>
                 {difficultyNotification.message}
               </div>
@@ -282,9 +298,11 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
           <div className={`quiz-content-grid ${showSupport && !answered ? 'bento-active' : 'centered-active'}`}>
             {/* Problem Section */}
             <div className="problem-section">
-              <div className="problem-badge">PROBLEMA {currentIndex + 1} DE 7</div>
+              <div className="problem-badge">PROBLEMA {currentIndex + 1} DE {totalQuestions}</div>
 
-              <p className="difficulty-indicator">Dificuldade: <span className={`diff-${currentDifficulty}`}>{currentDifficulty}</span></p>
+              {isCalculusTheme && (
+                  <p className="difficulty-indicator">Dificuldade: <span className={`diff-${currentDifficulty}`}>{currentDifficulty}</span></p>
+              )}
 
               <h2 className="problem-text">{question.text}</h2>
 
@@ -346,7 +364,7 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
                       </button>
                   ) : (
                       <button className="btn-submit active" onClick={handleContinue}>
-                        {currentIndex + 1 === 7 ? 'Terminar Tema' : 'Próxima Pergunta'}
+                        {currentIndex + 1 === totalQuestions ? 'Terminar Tema' : 'Próxima Pergunta'}
                       </button>
                   )}
                 </div>
