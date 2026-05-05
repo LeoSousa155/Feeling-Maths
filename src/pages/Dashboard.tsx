@@ -173,7 +173,7 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
         {/* Path Ahead */}
         <div className="path-ahead-section">
           <div className="section-header">
-            <h2>Path Ahead</h2>
+            <h2>Caminho pela frente</h2>
             <a href="#" className="view-roadmap">Ver Roteiro Completo</a>
           </div>
 
