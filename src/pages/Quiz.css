@@ -7,6 +7,44 @@
   flex-direction: column;
 }
 
+/* Notificação de Emoção */
+.emotion-notification {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  animation: slideInRight 0.3s ease forwards;
+}
+
+.emotion-notification p {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2a343a;
+}
+
+.emotion-notification strong {
+  color: #0060ad;
+  font-weight: 700;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .supportive-banner {
   background: #dcfce7;
   padding: 16px 48px;
@@ -412,6 +450,15 @@
   to { transform: translateY(0); opacity: 1; }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
 @media (max-width: 1024px) {
   .quiz-content-grid.bento-active {
     grid-template-columns: 1fr;
@@ -425,32 +472,45 @@
   .quiz-main {
     padding: 24px;
   }
+
+  .emotion-notification {
+    right: 12px;
+    left: 12px;
+  }
+
   .options-grid {
     grid-template-columns: 1fr;
   }
+
   .problem-actions {
     flex-direction: column;
     gap: 16px;
     align-items: stretch;
   }
+
   .right-actions {
     flex-direction: column;
     gap: 16px;
   }
+
   .btn-submit {
     width: 100%;
   }
+
   .quiz-header h1 {
     font-size: 28px;
   }
+
   .problem-text {
     font-size: 20px;
   }
+
   .supportive-banner {
     flex-direction: column;
     align-items: flex-start;
     padding: 16px 24px;
   }
+
   .problem-section {
     padding: 24px;
   }
