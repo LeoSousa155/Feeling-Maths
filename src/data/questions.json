@@ -14,7 +14,6 @@
             { "id": "o3", "text": "10" },
             { "id": "o4", "text": "15" }
           ],
-
           "correctOptionId": "o2",
           "explanation": "Subtraindo 5 de ambos os lados, obtemos x = 5.",
           "tip": "Tenta subtrair de ambos os lados o termo não x."
@@ -50,6 +49,306 @@
       ]
     },
     {
+      "id": "calculus",
+      "name": "Cálculo",
+      "questions": [
+        {
+          "id": "calc_b1",
+          "difficulty": "Beginner",
+          "text": "Qual é a derivada de f(x) = 5?",
+          "options": [
+            { "id": "o1", "text": "5" },
+            { "id": "o2", "text": "0" },
+            { "id": "o3", "text": "1" },
+            { "id": "o4", "text": "5x" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "A derivada de uma constante é sempre zero. Uma constante não muda, então sua taxa de mudança é 0.",
+          "tip": "Números fixos (constantes) sempre têm derivada nula."
+        },
+        {
+          "id": "calc_b2",
+          "difficulty": "Beginner",
+          "text": "Qual é a derivada de f(x) = 2x?",
+          "options": [
+            { "id": "o1", "text": "2" },
+            { "id": "o2", "text": "0" },
+            { "id": "o3", "text": "2x" },
+            { "id": "o4", "text": "1" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "A derivada de f(x) = ax é apenas o coeficiente a. Logo, f'(x) = 2.",
+          "tip": "Para um termo linear ax, a derivada é o coeficiente a."
+        },
+        {
+          "id": "calc_b3",
+          "difficulty": "Beginner",
+          "text": "Qual é a derivada de f(x) = 3x²?",
+          "options": [
+            { "id": "o1", "text": "3x" },
+            { "id": "o2", "text": "6x" },
+            { "id": "o3", "text": "3x²" },
+            { "id": "o4", "text": "6" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "Usando a regra da potência: d/dx(3x²) = 3 × 2x = 6x.",
+          "tip": "Regra da potência: desce o expoente multiplicando, depois reduz em 1."
+        },
+        {
+          "id": "calc_b4",
+          "difficulty": "Beginner",
+          "text": "Qual é a derivada de f(x) = x?",
+          "options": [
+            { "id": "o1", "text": "0" },
+            { "id": "o2", "text": "1" },
+            { "id": "o3", "text": "x" },
+            { "id": "o4", "text": "2" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "A derivada de f(x) = x é simplesmente 1.",
+          "tip": "A função identidade f(x) = x tem derivada igual a 1."
+        },
+        {
+          "id": "calc_b5",
+          "difficulty": "Beginner",
+          "text": "Qual é a derivada de f(x) = 4x + 1?",
+          "options": [
+            { "id": "o1", "text": "4" },
+            { "id": "o2", "text": "1" },
+            { "id": "o3", "text": "4x" },
+            { "id": "o4", "text": "5" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Derivar termo a termo: d/dx(4x) = 4, d/dx(1) = 0. Logo, f'(x) = 4.",
+          "tip": "Deriva cada termo: linear e constante."
+        },
+        {
+          "id": "calc_b6",
+          "difficulty": "Beginner",
+          "text": "Qual é a derivada de f(x) = 2x² + 3?",
+          "options": [
+            { "id": "o1", "text": "4x" },
+            { "id": "o2", "text": "2x" },
+            { "id": "o3", "text": "4x + 3" },
+            { "id": "o4", "text": "2x + 3" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Derivar termo a termo: d/dx(2x²) = 4x, d/dx(3) = 0. Logo, f'(x) = 4x.",
+          "tip": "Deriva cada termo separadamente e adiciona."
+        },
+        {
+          "id": "calc_b7",
+          "difficulty": "Beginner",
+          "text": "Qual é a derivada de f(x) = 5x + 7?",
+          "options": [
+            { "id": "o1", "text": "5" },
+            { "id": "o2", "text": "7" },
+            { "id": "o3", "text": "5x" },
+            { "id": "o4", "text": "12" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Derivar termo a termo: d/dx(5x) = 5, d/dx(7) = 0. Logo, f'(x) = 5.",
+          "tip": "A derivada de uma função linear é só o coeficiente."
+        },
+        {
+          "id": "calc_i1",
+          "difficulty": "Intermediate",
+          "text": "Qual é a derivada de f(x) = 2x² + 3x?",
+          "options": [
+            { "id": "o1", "text": "4x + 3" },
+            { "id": "o2", "text": "2x + 3" },
+            { "id": "o3", "text": "4x² + 3x" },
+            { "id": "o4", "text": "2x + 1" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Derivada termo a termo: d/dx(2x²) = 4x, d/dx(3x) = 3. Logo, f'(x) = 4x + 3.",
+          "tip": "Deriva cada termo independentemente e soma os resultados."
+        },
+        {
+          "id": "calc_i2",
+          "difficulty": "Intermediate",
+          "text": "Qual é a derivada de f(x) = x³ + 2x²?",
+          "options": [
+            { "id": "o1", "text": "3x² + 4x" },
+            { "id": "o2", "text": "x² + 2x" },
+            { "id": "o3", "text": "3x² + 2x" },
+            { "id": "o4", "text": "3x + 4" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Derivada termo a termo: d/dx(x³) = 3x², d/dx(2x²) = 4x. Logo, f'(x) = 3x² + 4x.",
+          "tip": "Regra da potência em cada termo: baixa o expoente e reduz."
+        },
+        {
+          "id": "calc_i3",
+          "difficulty": "Intermediate",
+          "text": "Qual é a derivada de f(x) = (2x + 1)(x + 3)?",
+          "options": [
+            { "id": "o1", "text": "4x + 7" },
+            { "id": "o2", "text": "2x + 3" },
+            { "id": "o3", "text": "2x + 1" },
+            { "id": "o4", "text": "4x + 1" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Regra do produto: (u·v)' = u'·v + u·v'. u = 2x + 1 (u' = 2), v = x + 3 (v' = 1). Logo, f'(x) = 2(x + 3) + (2x + 1)(1) = 2x + 6 + 2x + 1 = 4x + 7.",
+          "tip": "Regra do produto: derivada do 1º × 2º + 1º × derivada do 2º."
+        },
+        {
+          "id": "calc_i4",
+          "difficulty": "Intermediate",
+          "text": "Qual é a derivada de f(x) = 3x² - 2x + 1?",
+          "options": [
+            { "id": "o1", "text": "6x - 2" },
+            { "id": "o2", "text": "6x - 2x" },
+            { "id": "o3", "text": "3x - 2" },
+            { "id": "o4", "text": "6x + 1" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Derivando termo a termo: d/dx(3x²) = 6x, d/dx(-2x) = -2, d/dx(1) = 0. Logo, f'(x) = 6x - 2.",
+          "tip": "Polinômios: deriva cada termo e soma."
+        },
+        {
+          "id": "calc_i5",
+          "difficulty": "Intermediate",
+          "text": "Qual é a derivada de f(x) = (x + 2)²?",
+          "options": [
+            { "id": "o1", "text": "2(x + 2)" },
+            { "id": "o2", "text": "(x + 2)" },
+            { "id": "o3", "text": "2x + 4" },
+            { "id": "o4", "text": "x + 2" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Usando a regra da cadeia: d/dx((x + 2)²) = 2(x + 2) × 1 = 2(x + 2).",
+          "tip": "Cadeia: desce o expoente, multiplica pela derivada do interior."
+        },
+        {
+          "id": "calc_i6",
+          "difficulty": "Intermediate",
+          "text": "Qual é a derivada de f(x) = 4x³ - 3x² + 2x?",
+          "options": [
+            { "id": "o1", "text": "12x² - 6x + 2" },
+            { "id": "o2", "text": "12x² - 3x" },
+            { "id": "o3", "text": "4x² - 3x + 2" },
+            { "id": "o4", "text": "12x - 6" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Derivando: d/dx(4x³) = 12x², d/dx(-3x²) = -6x, d/dx(2x) = 2. Logo, f'(x) = 12x² - 6x + 2.",
+          "tip": "Polinômios: deriva cada termo."
+        },
+        {
+          "id": "calc_i7",
+          "difficulty": "Intermediate",
+          "text": "Qual é a derivada de f(x) = 1/x?",
+          "options": [
+            { "id": "o1", "text": "-1/(x²)" },
+            { "id": "o2", "text": "1/(x²)" },
+            { "id": "o3", "text": "-1/x" },
+            { "id": "o4", "text": "1/x" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "1/x = x⁻¹. Usando a regra da potência: d/dx(x⁻¹) = -1·x⁻² = -1/(x²).",
+          "tip": "Reescreve como potência negativa antes de usar a regra."
+        },
+        {
+          "id": "calc_a1",
+          "difficulty": "Advanced",
+          "text": "Qual é a derivada de f(x) = e^(2x)?",
+          "options": [
+            { "id": "o1", "text": "e^(2x)" },
+            { "id": "o2", "text": "2e^(2x)" },
+            { "id": "o3", "text": "e^x" },
+            { "id": "o4", "text": "2e^x" }
+          ],
+          "correctOptionId": "o2",
+          "explanation": "Usando a regra da cadeia: d/dx(e^u) = e^u × du/dx. Aqui, u = 2x, du/dx = 2. Logo, f'(x) = e^(2x) × 2 = 2e^(2x).",
+          "tip": "Cadeia com exponencial: multiplica pela derivada do expoente."
+        },
+        {
+          "id": "calc_a2",
+          "difficulty": "Advanced",
+          "text": "Qual é a integral indefinida de ∫(3x² + 2x) dx?",
+          "options": [
+            { "id": "o1", "text": "x³ + x² + C" },
+            { "id": "o2", "text": "6x + 2 + C" },
+            { "id": "o3", "text": "x⁴ + x² + C" },
+            { "id": "o4", "text": "3x³ + 2x² + C" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Integrando termo a termo: ∫3x² dx = x³, ∫2x dx = x². Logo, ∫(3x² + 2x) dx = x³ + x² + C.",
+          "tip": "Para integrar xⁿ, usa: ∫xⁿ dx = xⁿ⁺¹/(n+1) + C."
+        },
+        {
+          "id": "calc_a3",
+          "difficulty": "Advanced",
+          "text": "Qual é a derivada de f(x) = ln(x)?",
+          "options": [
+            { "id": "o1", "text": "1/x" },
+            { "id": "o2", "text": "1" },
+            { "id": "o3", "text": "x" },
+            { "id": "o4", "text": "ln(x)" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "A derivada do logaritmo natural é d/dx(ln(x)) = 1/x.",
+          "tip": "Logaritmo natural: sempre 1/x."
+        },
+        {
+          "id": "calc_a4",
+          "difficulty": "Advanced",
+          "text": "Qual é a derivada de f(x) = x² × e^x?",
+          "options": [
+            { "id": "o1", "text": "e^x(x² + 2x)" },
+            { "id": "o2", "text": "2x × e^x" },
+            { "id": "o3", "text": "e^x(2x + 1)" },
+            { "id": "o4", "text": "x × e^x" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Regra do produto: (u×v)' = u'×v + u×v'. u = x² (u' = 2x), v = e^x (v' = e^x). Logo, f'(x) = 2x×e^x + x²×e^x = e^x(2x + x²).",
+          "tip": "Produto: derivada do 1º × 2º + 1º × derivada do 2º."
+        },
+        {
+          "id": "calc_a5",
+          "difficulty": "Advanced",
+          "text": "Qual é a derivada de f(x) = sin(x)?",
+          "options": [
+            { "id": "o1", "text": "cos(x)" },
+            { "id": "o2", "text": "-sin(x)" },
+            { "id": "o3", "text": "-cos(x)" },
+            { "id": "o4", "text": "sin(x)" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "A derivada de sin(x) é cos(x). Esta é uma identidade trigonométrica fundamental.",
+          "tip": "Trigonometria: d/dx(sin(x)) = cos(x)."
+        },
+        {
+          "id": "calc_a6",
+          "difficulty": "Advanced",
+          "text": "Qual é a derivada de f(x) = (x² + 1)/(x)?",
+          "options": [
+            { "id": "o1", "text": "1 - 1/(x²)" },
+            { "id": "o2", "text": "1 + 1/(x²)" },
+            { "id": "o3", "text": "2x - 1/(x²)" },
+            { "id": "o4", "text": "2 - 1/x" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "Simplifica primeiro: (x² + 1)/x = x + 1/x. Deriva: d/dx(x) = 1, d/dx(1/x) = d/dx(x⁻¹) = -1/(x²). Logo, f'(x) = 1 - 1/(x²).",
+          "tip": "Simplifica antes de derivar quando possível."
+        },
+        {
+          "id": "calc_a7",
+          "difficulty": "Advanced",
+          "text": "Qual é a integral definida ∫₀¹ (2x + 1) dx?",
+          "options": [
+            { "id": "o1", "text": "2" },
+            { "id": "o2", "text": "1" },
+            { "id": "o3", "text": "3" },
+            { "id": "o4", "text": "4" }
+          ],
+          "correctOptionId": "o1",
+          "explanation": "∫(2x + 1) dx = x² + x + C. Avalia de 0 a 1: [1² + 1] - [0] = 2.",
+          "tip": "Integral definida: calcula a primitiva e substitui os limites."
+        }
+      ]
+    },
+    {
       "id": "geometry",
       "name": "Geometria",
       "questions": [
@@ -64,8 +363,8 @@
             { "id": "o4", "text": "20 cm²" }
           ],
           "correctOptionId": "o3",
-          "explanation": "A área do quadrado é lado * lado = 4 * 4 = 16 cm².",
-          "tip": "Tenta usar multiplicar os lados do quadrado."
+          "explanation": "A área do quadrado é lado × lado = 4 × 4 = 16 cm².",
+          "tip": "Multiplica os lados do quadrado."
         },
         {
           "id": "g2",
@@ -78,8 +377,8 @@
             { "id": "o4", "text": "24 cm²" }
           ],
           "correctOptionId": "o2",
-          "explanation": "A área do triângulo é (base * altura) / 2 = (6 * 4) / 2 = 24 / 2 = 12 cm².",
-          "tip": "Pensa como um triângulo tem metade da area de um retângulo com a mesma largura e altura."
+          "explanation": "A área do triângulo é (base × altura) / 2 = (6 × 4) / 2 = 24 / 2 = 12 cm².",
+          "tip": "O triângulo tem metade da área de um retângulo."
         },
         {
           "id": "g3",
@@ -93,7 +392,7 @@
           ],
           "correctOptionId": "o1",
           "explanation": "Pelo Teorema de Pitágoras: a² = b² + c² => a² = 3² + 4² => a² = 9 + 16 = 25. Logo, a = 5 cm.",
-          "tip": "O teorema de Pitágoras pode ser usado para descobrir a hipotenusa num triângulo retângulo."
+          "tip": "O teorema de Pitágoras: a² = b² + c²."
         }
       ]
     },
@@ -127,7 +426,7 @@
           ],
           "correctOptionId": "o2",
           "explanation": "A interseção é o conjunto de elementos que pertencem a ambos os conjuntos. Apenas o 3 está em A e em B.",
-          "tip": "Uma interseção inclui apenas os conjuntos que fazem parte de ambos os conjuntos"
+          "tip": "Uma interseção inclui apenas elementos de ambos os conjuntos."
         },
         {
           "id": "s3",
@@ -140,8 +439,8 @@
             { "id": "o4", "text": "32" }
           ],
           "correctOptionId": "o3",
-          "explanation": "Um conjunto com n elementos possui 2^n subconjuntos. Como n = 4, o número de subconjuntos é 2^4 = 16.",
-          "tip": "Subconjuntos são todos os conjuntos diferentes que contenham apenas os valores que pertêncem ao conjunto principal."
+          "explanation": "Um conjunto com n elementos possui 2ⁿ subconjuntos. Como n = 4, o número de subconjuntos é 2⁴ = 16.",
+          "tip": "Fórmula: 2ⁿ subconjuntos para um conjunto com n elementos."
         }
       ]
     }
