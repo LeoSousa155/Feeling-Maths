@@ -6,7 +6,7 @@
       "questions": [
         {
           "id": "a1",
-          "difficulty": "Iniciante",
+          "difficulty": "Beginner",
           "text": "Qual é o valor de x na equação x + 5 = 10?",
           "options": [
             { "id": "o1", "text": "2" },
@@ -51,7 +51,7 @@
       "questions": [
         {
           "id": "g1",
-          "difficulty": "Iniciante",
+          "difficulty": "Beginner",
           "text": "Qual é a área de um quadrado de lado 4cm?",
           "options": [
             { "id": "o1", "text": "8 cm²" },
@@ -64,7 +64,7 @@
         },
         {
           "id": "g2",
-          "difficulty": "Intermédio",
+          "difficulty": "Intermediate",
           "text": "Qual é a área de um triângulo com base 6cm e altura 4cm?",
           "options": [
             { "id": "o1", "text": "10 cm²" },
@@ -77,7 +77,7 @@
         },
         {
           "id": "g3",
-          "difficulty": "Avançado",
+          "difficulty": "Advanced",
           "text": "Num triângulo retângulo, os catetos medem 3cm e 4cm. Qual o comprimento da hipotenusa?",
           "options": [
             { "id": "o1", "text": "5 cm" },
@@ -96,7 +96,7 @@
       "questions": [
         {
           "id": "s1",
-          "difficulty": "Iniciante",
+          "difficulty": "Beginner",
           "text": "O que representa A ∪ B?",
           "options": [
             { "id": "o1", "text": "Interseção de A e B" },
@@ -109,7 +109,7 @@
         },
         {
           "id": "s2",
-          "difficulty": "Intermédio",
+          "difficulty": "Intermediate",
           "text": "Se A = {1, 2, 3} e B = {3, 4, 5}, qual é a interseção (A ∩ B)?",
           "options": [
             { "id": "o1", "text": "{1, 2, 3, 4, 5}" },
@@ -122,7 +122,7 @@
         },
         {
           "id": "s3",
-          "difficulty": "Avançado",
+          "difficulty": "Advanced",
           "text": "Seja o conjunto A = {a, b, c, d}. Quantos subconjuntos possui A?",
           "options": [
             { "id": "o1", "text": "8" },
