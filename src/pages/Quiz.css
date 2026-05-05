@@ -455,3 +455,49 @@
     padding: 24px;
   }
 }
+
+/* Emoção Detectada Badge */
+.quiz-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.emotion-detected-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f9ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.emotion-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0060ad;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@media (max-width: 768px) {
+  .quiz-header-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .emotion-detected-badge {
+    align-self: flex-start;
+  }
+}
