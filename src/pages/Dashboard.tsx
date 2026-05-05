@@ -178,7 +178,7 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
           </div>
 
           <div className="path-grid">
-            {questionsData.themes.map((theme, index) => {
+            {questionsData.themes.map((theme) => {
               const isUnlocked = true;
               
               return (

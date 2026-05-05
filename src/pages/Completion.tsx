@@ -10,10 +10,9 @@ type CompletionProps = {
   onNavigateToHome: () => void;
   onNavigateToExercises: () => void;
   onNavigateToProfile: () => void;
-  onNavigateToTheory: () => void;
 };
 
-export default function Completion({ user, themeName, score, total, difficulty, onNavigateToHome, onNavigateToExercises, onNavigateToProfile, onNavigateToTheory }: CompletionProps) {
+export default function Completion({ user, themeName, score, total, difficulty, onNavigateToHome, onNavigateToExercises, onNavigateToProfile }: CompletionProps) {
   const percentage = Math.round((score / total) * 100);
 
   return (
@@ -24,7 +23,6 @@ export default function Completion({ user, themeName, score, total, difficulty, 
         onNavigateToHome={onNavigateToHome}
         onNavigateToExercises={onNavigateToExercises}
         onNavigateToProfile={onNavigateToProfile}
-        onNavigateToTheory={onNavigateToTheory}
       />
 
       <main className="completion-main">

@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import './Quiz.css';
 
 type Option = { id: string; text: string; };
-type Question = { id: string; text: string; options: Option[]; correctOptionId: string; explanation: string; };
+type Question = { id: string; text: string; options: Option[]; correctOptionId: string; explanation: string; tip?: string };
 type Theme = { id: string; name: string; questions: Question[]; };
 
 type QuizProps = {
@@ -12,7 +12,7 @@ type QuizProps = {
   questions: Question[];
   onExit: () => void;
   onFinishTheme: (score: number) => void;
-  onNavigateToTheory: () => void;
+  onNavigateToTheory: (themeId: string) => void;
 };
 
 export default function Quiz({ user, theme, questions, onExit, onFinishTheme, onNavigateToTheory }: QuizProps) {
@@ -29,7 +29,7 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
     // Simulate detecting struggle after 5 seconds to show the Mindful Support card
     const timer = setTimeout(() => {
       if (!selectedOption) setShowSupport(true);
-    }, 5000);
+    }, 10000);
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
@@ -49,28 +49,15 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
     }
   };
 
-  const hasStruggled = showSupport && !selectedOption;
 
   return (
     <div className="quiz-wrapper">
       <Header 
         user={user} 
         activePath="exercises" 
-        onNavigateToHome={onExit} 
-        onNavigateToTheory={onNavigateToTheory}
+        onNavigateToHome={onExit}
+        onNavigateToTheory={() => {}}
       />
-
-      {hasStruggled && (
-        <div className="supportive-banner animate-slide-down">
-          <div className="banner-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#006e36" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          </div>
-          <div className="banner-text">
-            <h4>Vamos tentar isto numa forma diferentes</h4>
-            <p>Noteu que estás a trabalhar bastante nisto. As vezes uma prespetiva fresca ajuda!</p>
-          </div>
-        </div>
-      )}
 
       <main className="quiz-main">
         {/* Session Header */}
@@ -134,12 +121,12 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
               <div className="support-card">
                 <div className="support-header">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#006e36" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                  <h3>Mindful Support</h3>
+                  <h3>Suporte</h3>
                 </div>
                 
-                <p className="support-desc">Noteu que estás a sar um bom tempo aqui. Vamos Simplificar:</p>
+                <p className="support-desc">Notei que estás a ficar um bom tempo aqui. Vamos Simplificar:</p>
                 <div className="support-hint-box">
-                  Tenta <strong>distribuir</strong> os números pelos parênteses primeiro, ou <strong>subtrair</strong> nos dois lados.
+                  {question.tip}
                 </div>
 
                 <div className="support-actions">
@@ -155,7 +142,7 @@ export default function Quiz({ user, theme, questions, onExit, onFinishTheme, on
 
         {/* Bottom Pill Actions */}
         <div className="bottom-pill-actions">
-          <button className="pill-btn">
+          <button className="pill-btn" onClick={() => onNavigateToTheory(theme.id)}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
             Rever Teoria
           </button>

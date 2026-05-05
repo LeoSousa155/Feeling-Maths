@@ -71,34 +71,34 @@ function App() {
   // Quiz Screen
   if (currentTheme && quizStatus.status !== 'idle') {
     const theme = questionsData.themes.find((t) => t.id === currentTheme);
-    if (!theme) return null;
+      if (!theme) return null;
+
 
     const filteredQuestions = theme.questions.filter((q) => q.difficulty === difficulty);
 
-    if (quizStatus.status === 'completed') {
+      if (quizStatus.status === 'completed') {
       return (
-        <Completion 
-          user={user}
-          themeName={theme.name}
-          score={quizStatus.score}
-          total={filteredQuestions.length}
-          difficulty={difficulty}
-          onNavigateToHome={() => {
-            setQuizStatus({status: 'idle', score: 0});
-            setCurrentTheme(null);
-            setActiveView('dashboard');
-          }}
-          onNavigateToExercises={() => {
-            setQuizStatus({status: 'idle', score: 0});
-            setCurrentTheme(null);
-            setActiveView('exercises');
-          }}
-          onNavigateToProfile={() => {
-            setQuizStatus({status: 'idle', score: 0});
-            setCurrentTheme(null);
-            setActiveView('profile');
-          }}
-        />
+        <Completion
+            user={user}
+            themeName={theme.name}
+            score={quizStatus.score}
+            total={filteredQuestions.length}
+            difficulty={difficulty}
+            onNavigateToHome={() => {
+                setQuizStatus({status: 'idle', score: 0});
+                setCurrentTheme(null);
+                setActiveView('dashboard');
+            }}
+            onNavigateToExercises={() => {
+                setQuizStatus({status: 'idle', score: 0});
+                setCurrentTheme(null);
+                setActiveView('exercises');
+            }}
+            onNavigateToProfile={() => {
+                setQuizStatus({status: 'idle', score: 0});
+                setCurrentTheme(null);
+                setActiveView('profile');
+            }}        />
       );
     }
 
@@ -125,7 +125,11 @@ function App() {
             };
           });
           setQuizStatus({status: 'completed', score});
-        }}
+        }} onNavigateToTheory={(themeId) => {
+          setCurrentTheory(themeId);
+          setActiveView('theory-lesson');
+          setQuizStatus({status: 'idle', score: 0});
+      }}
       />
     );
   }

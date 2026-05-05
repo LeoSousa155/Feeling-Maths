@@ -26,7 +26,6 @@ export default function TheoryHub({ user, onNavigateToHome, onNavigateToExercise
           <h1>Teoria de Biblioteca</h1>
           <p>Aprofunda o teu conhecimento antes de o por em prática.</p>
         </div>
-
         <div className="theory-grid">
           {questionsData.themes.map((theme, idx) => (
             <div key={theme.id} className="theory-card animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>

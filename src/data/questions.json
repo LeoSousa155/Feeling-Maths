@@ -14,8 +14,10 @@
             { "id": "o3", "text": "10" },
             { "id": "o4", "text": "15" }
           ],
+
           "correctOptionId": "o2",
-          "explanation": "Subtraindo 5 de ambos os lados, obtemos x = 5."
+          "explanation": "Subtraindo 5 de ambos os lados, obtemos x = 5.",
+          "tip": "Tenta subtrair de ambos os lados o termo não x."
         },
         {
           "id": "a2",
@@ -28,7 +30,8 @@
             { "id": "o4", "text": "8" }
           ],
           "correctOptionId": "o2",
-          "explanation": "Subtraindo 5 de ambos os lados, obtemos 2x = 8. Dividindo por 2, x = 4."
+          "explanation": "Subtraindo 5 de ambos os lados, obtemos 2x = 8. Dividindo por 2, x = 4.",
+          "tip": "Tenta remover o termo não x ao subtrair-lo nos dois lados da equação"
         },
         {
           "id": "a3",
@@ -41,7 +44,8 @@
             { "id": "o4", "text": "12x" }
           ],
           "correctOptionId": "o1",
-          "explanation": "Distribuindo o 3: 3x - 6 + 4x - 2x. Combinando os termos semelhantes: (3x + 4x - 2x) - 6 = 5x - 6."
+          "explanation": "Distribuindo o 3: 3x - 6 + 4x - 2x. Combinando os termos semelhantes: (3x + 4x - 2x) - 6 = 5x - 6.",
+          "tip": "Tenta distribuir os números pelos parênteses primeiro."
         }
       ]
     },
@@ -60,7 +64,8 @@
             { "id": "o4", "text": "20 cm²" }
           ],
           "correctOptionId": "o3",
-          "explanation": "A área do quadrado é lado * lado = 4 * 4 = 16 cm²."
+          "explanation": "A área do quadrado é lado * lado = 4 * 4 = 16 cm².",
+          "tip": "Tenta usar multiplicar os lados do quadrado."
         },
         {
           "id": "g2",
@@ -73,7 +78,8 @@
             { "id": "o4", "text": "24 cm²" }
           ],
           "correctOptionId": "o2",
-          "explanation": "A área do triângulo é (base * altura) / 2 = (6 * 4) / 2 = 24 / 2 = 12 cm²."
+          "explanation": "A área do triângulo é (base * altura) / 2 = (6 * 4) / 2 = 24 / 2 = 12 cm².",
+          "tip": "Pensa como um triângulo tem metade da area de um retângulo com a mesma largura e altura."
         },
         {
           "id": "g3",
@@ -86,7 +92,8 @@
             { "id": "o4", "text": "8 cm" }
           ],
           "correctOptionId": "o1",
-          "explanation": "Pelo Teorema de Pitágoras: a² = b² + c² => a² = 3² + 4² => a² = 9 + 16 = 25. Logo, a = 5 cm."
+          "explanation": "Pelo Teorema de Pitágoras: a² = b² + c² => a² = 3² + 4² => a² = 9 + 16 = 25. Logo, a = 5 cm.",
+          "tip": "O teorema de Pitágoras pode ser usado para descobrir a hipotenusa num triângulo retângulo."
         }
       ]
     },
@@ -105,7 +112,8 @@
             { "id": "o4", "text": "Complemento de A" }
           ],
           "correctOptionId": "o2",
-          "explanation": "O símbolo ∪ representa a união de conjuntos."
+          "explanation": "O símbolo ∪ representa a união de conjuntos.",
+          "tip": "∪ representa uma união."
         },
         {
           "id": "s2",
@@ -118,7 +126,8 @@
             { "id": "o4", "text": "∅" }
           ],
           "correctOptionId": "o2",
-          "explanation": "A interseção é o conjunto de elementos que pertencem a ambos os conjuntos. Apenas o 3 está em A e em B."
+          "explanation": "A interseção é o conjunto de elementos que pertencem a ambos os conjuntos. Apenas o 3 está em A e em B.",
+          "tip": "Uma interseção inclui apenas os conjuntos que fazem parte de ambos os conjuntos"
         },
         {
           "id": "s3",
@@ -131,7 +140,8 @@
             { "id": "o4", "text": "32" }
           ],
           "correctOptionId": "o3",
-          "explanation": "Um conjunto com n elementos possui 2^n subconjuntos. Como n = 4, o número de subconjuntos é 2^4 = 16."
+          "explanation": "Um conjunto com n elementos possui 2^n subconjuntos. Como n = 4, o número de subconjuntos é 2^4 = 16.",
+          "tip": "Subconjuntos são todos os conjuntos diferentes que contenham apenas os valores que pertêncem ao conjunto principal."
         }
       ]
     }
