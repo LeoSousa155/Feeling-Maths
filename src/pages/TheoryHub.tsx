@@ -37,6 +37,15 @@ export default function TheoryHub({ user, onNavigateToHome, onNavigateToExercise
               </button>
             </div>
           ))}
+          
+          {/* Upcoming Content placeholder */}
+          <div className="theory-card upcoming-card animate-fade-in" style={{ animationDelay: `${questionsData.themes.length * 0.1}s` }}>
+            <div className="theory-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M21 12H3"></path><path d="M12 3v18"></path></svg>
+            </div>
+            <h2>Conteúdo Futuro</h2>
+            <p>Teoria da Probabilidade & Estatística. Em breve disponível para aprenderes!</p>
+          </div>
         </div>
       </main>
     </div>

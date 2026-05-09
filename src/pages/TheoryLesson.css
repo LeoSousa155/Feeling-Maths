@@ -6,14 +6,71 @@
 }
 
 .theory-lesson-main {
-  max-width: 1080px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 48px 5vw;
 }
 
+.theory-lesson-main.with-sidebar {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.theory-sidebar {
+  position: sticky;
+  top: 100px;
+  background: #f8fafc;
+  padding: 32px 24px;
+  border-radius: 24px;
+}
+
+.theory-sidebar h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 16px 0 24px 0;
+  color: #1e293b;
+}
+
+.theory-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.theory-nav-btn {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.theory-nav-btn:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.theory-nav-btn.active {
+  background: #0060ad;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 96, 173, 0.2);
+}
+
+.theory-content-area {
+  min-width: 0;
+}
+
 /* Header */
 .theory-header {
-  text-align: center;
   margin-bottom: 64px;
 }
 
@@ -53,7 +110,7 @@
   font-size: 18px;
   color: #64748b;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
   line-height: 1.6;
 }
 
@@ -394,59 +451,180 @@
   flex-shrink: 0;
 }
 
-/* ── Extra Concepts Section ── */
-.extra-concepts-section {
+/* ── Theory Modules Section ── */
+.theory-modules-section {
   margin-bottom: 64px;
 }
 
-.extra-concepts-grid {
+.theory-modules-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
-  margin-top: 32px;
 }
 
-.extra-concept-card {
-  background: #f8fafc;
+.module-card {
+  padding: 32px;
+  background: #ffffff;
   border: 1px solid #f1f5f9;
   border-radius: 24px;
-  padding: 32px 28px;
-  text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.extra-concept-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
 }
 
-.concept-icon {
-  font-size: 40px;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  color: #0060ad;
-  margin-bottom: 16px;
-  line-height: 1;
-}
-
-.extra-concept-card h3 {
+.module-subtitle {
+  display: block;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 16px;
+  font-size: 11px;
   font-weight: 800;
-  color: #334155;
-  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b;
+  margin-bottom: 8px;
 }
 
-.extra-concept-card p {
-  font-size: 14px;
-  color: #64748b;
-  margin: 0;
+.module-card h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #2a343a;
+  margin: 0 0 16px 0;
+}
+
+.module-card p {
+  font-size: 15px;
   line-height: 1.6;
+  color: #566167;
+  margin-bottom: 24px;
+}
+
+.module-formula-box {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.module-formula {
+  font-family: 'Fira Code', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0060ad;
+}
+
+/* Color Variants */
+.module-card.color-indigo {
+  border-left: 6px solid #6366f1;
+}
+
+.module-card.color-indigo .module-formula {
+  color: #6366f1;
+}
+
+.module-card.color-teal {
+  border-left: 6px solid #0d9488;
+}
+
+.module-card.color-teal .module-formula {
+  color: #0d9488;
+}
+
+.module-card.color-purple {
+  border-left: 6px solid #9333ea;
+}
+
+/* Reference Tables Section */
+.theory-tables-section {
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.theory-table-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.theory-table-card h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.theory-reference-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.theory-reference-table th {
+  text-align: left;
+  padding: 12px 16px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.theory-reference-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+  color: #334155;
+}
+
+.theory-reference-table tr:hover td {
+  background: #f8fafc;
+}
+
+.theory-reference-table code {
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 @media (max-width: 1024px) {
   .theory-bento-grid {
     grid-template-columns: 1fr;
+  }
+  .theory-lesson-main.with-sidebar {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .theory-sidebar {
+    position: static;
+    padding: 24px;
+    top: auto;
+  }
+  .theory-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .theory-nav-btn {
+    white-space: nowrap;
   }
 }
 

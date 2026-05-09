@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import Header from '../components/Header';
+import { useEmotionDetector } from '../hooks/useEmotionDetector';
 import './Dashboard.css';
 import questionsData from '../data/questions.json';
 
@@ -21,6 +23,43 @@ type DashboardProps = {
 };
 
 export default function Dashboard({ user, progress, streak, onSelectTheme, onNavigateToProfile, onNavigateToExercises, onNavigateToTheory }: DashboardProps) {
+  const {
+    videoRef,
+    emotion,
+    startDetection,
+    stopDetection,
+    error,
+    detectionActive
+  } = useEmotionDetector();
+
+  useEffect(() => {
+    startDetection();
+    return () => stopDetection();
+  }, []);
+
+  // Dominant emotion calculation
+  const getDominantEmotion = () => {
+    if (error || !detectionActive) return { name: 'Câmara Desligada', color: '#94a3b8' };
+    if (!emotion) return { name: 'À procura de foco...', color: '#64748b' };
+    
+    const entries = Object.entries(emotion);
+    const dominant = entries.reduce((a, b) => a[1] > b[1] ? a : b);
+    
+    const emotionMap: any = {
+      happy: { name: 'Contente', color: '#16a34a' },
+      sad: { name: 'Pensativo', color: '#0284c7' },
+      angry: { name: 'Frustrado', color: '#dc2626' },
+      surprised: { name: 'Curioso', color: '#9333ea' },
+      fearful: { name: 'Ansioso', color: '#ea580c' },
+      disgusted: { name: 'Confuso', color: '#4b5563' },
+      neutral: { name: 'Focado', color: '#0060ad' }
+    };
+
+    return emotionMap[dominant[0]] || { name: 'Estável', color: '#006e36' };
+  };
+
+  const currentEmotion = getDominantEmotion();
+
   // Calculate dynamic stats
   let totalCompleted = 0;
   let highestMastery = { name: 'Nenhum ainda', percentage: 0 };
@@ -53,6 +92,7 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
 
   return (
     <div className="dashboard-wrapper">
+      <video ref={videoRef} autoPlay playsInline muted style={{ display: 'none' }} />
       <Header 
         user={user} 
         activePath="home" 
@@ -116,23 +156,43 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
                   <div className="mockup-dot yellow"></div>
                   <div className="mockup-dot green"></div>
                 </div>
-                <div className="mockup-body"></div>
+                <div className="mockup-body">
+                  {!detectionActive || error ? (
+                    <div className="camera-off-indicator">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2"><path d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16"></path><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path></svg>
+                      <span style={{ fontSize: '10px', marginTop: '4px', maxWidth: '160px' }}>{error || 'Câmara desligada'}</span>
+                    </div>
+                  ) : (
+                    <div className="ai-detection-visual">
+                      <div className="wave-container">
+                        <div className="wave" style={{ background: currentEmotion.color }}></div>
+                        <div className="wave" style={{ background: currentEmotion.color, animationDelay: '0.5s' }}></div>
+                        <div className="wave" style={{ background: currentEmotion.color, animationDelay: '1s' }}></div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
               
-              <div className="mentor-floating-badge">
-                <div className="badge-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#006e36" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <div className="mentor-floating-badge" style={{ borderColor: currentEmotion.color }}>
+                <div className="badge-icon" style={{ background: currentEmotion.color + '20' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={currentEmotion.color} strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                 </div>
                 <div className="badge-text">
                   <span className="b-label">Estado:</span>
-                  <span className="b-value">Calmo<br/>& Preparado</span>
+                  <span className="b-value" style={{ color: currentEmotion.color }}>{currentEmotion.name}</span>
                 </div>
               </div>
             </div>
             
             <div className="mentor-content">
               <h3>Vista do mentor</h3>
-              <p>"Os teus níveis de foco estão ideais. Estás em um ótimo estado para aprender novos conceitos hoje."</p>
+              <p>
+                {!detectionActive || error 
+                  ? "Ativa a câmara para que eu possa ajustar o ritmo da aula ao teu estado emocional."
+                  : `Pareces ${currentEmotion.name.toLowerCase()}. ${currentEmotion.name === 'Focado' ? 'Excelente progresso!' : 'Continua assim, estás no caminho certo.'}`
+                }
+              </p>
             </div>
           </div>
         </div>
@@ -150,12 +210,12 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
           </div>
 
           <div className="stat-card">
-            <div className="stat-icon bg-red">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" strokeWidth="2"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"></path></svg>
+            <div className={`stat-icon ${streak > 0 ? 'bg-red' : ''}`} style={streak === 0 ? { background: '#f1f5f9' } : {}}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={streak > 0 ? "#dc2626" : "#94a3b8"} strokeWidth="2"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"></path></svg>
             </div>
             <div className="stat-info">
               <span className="s-label">SÉRIE DE APRENDIZAGEM</span>
-              <span className="s-value">{streak} Dias</span>
+              <span className="s-value" style={streak === 0 ? {color: '#64748b'} : {}}>{streak} {streak === 1 ? 'Dia' : 'Dias'}</span>
             </div>
           </div>
 
@@ -173,8 +233,17 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
         {/* Path Ahead */}
         <div className="path-ahead-section">
           <div className="section-header">
-            <h2>Caminho pela frente</h2>
-            <a href="#" className="view-roadmap">Ver Roteiro Completo</a>
+            <h2>Unidades curriculares</h2>
+            <a 
+              href="#" 
+              className="view-roadmap" 
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigateToExercises();
+              }}
+            >
+              Ver todos os temas
+            </a>
           </div>
 
           <div className="path-grid">
@@ -195,7 +264,7 @@ export default function Dashboard({ user, progress, streak, onSelectTheme, onNav
                   
                   {isUnlocked && (
                     <div className="path-action">
-                      Começar o Proximo
+                      Praticar Exercícios
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                   )}

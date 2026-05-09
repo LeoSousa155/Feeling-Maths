@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Header from '../components/Header';
 import { useEmotionDetector } from '../hooks/useEmotionDetector';
+import theoryData from '../data/theory.json';
 import './Quiz.css';
 
 type Option = { id: string; text: string; };
@@ -14,6 +15,9 @@ type QuizProps = {
   onExit: () => void;
   onFinishTheme: (score: number) => void;
   onNavigateToTheory: (themeId: string) => void;
+  onNavigateToTheoryHub: () => void;
+  onNavigateToProfile: () => void;
+  onNavigateToExercises: () => void;
 };
 
 type DifficultyNotification = {
@@ -23,13 +27,17 @@ type DifficultyNotification = {
   timestamp: number;
 };
 
-const DIFFICULTY_LEVELS = {
-  'Beginner': 1,
-  'Intermediate': 2,
-  'Advanced': 3
-};
-
-export default function Quiz({ user, theme, questions: allQuestions, onExit, onFinishTheme, onNavigateToTheory }: QuizProps) {
+export default function Quiz({ 
+  user, 
+  theme, 
+  questions: allQuestions, 
+  onExit, 
+  onFinishTheme, 
+  onNavigateToTheory, 
+  onNavigateToTheoryHub,
+  onNavigateToProfile,
+  onNavigateToExercises
+}: QuizProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [score, setScore] = useState(0);
@@ -48,26 +56,30 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
     emotion,
     startDetection,
     stopDetection,
+    detectionActive,
+    error
   } = useEmotionDetector();
 
-  // Inicializar quiz: 7 para Cálculo, 1 para outros
+  const [usedQuestionIds, setUsedQuestionIds] = useState<Set<string>>(new Set());
+
+  // Inicializar quiz: Escolhe a primeira pergunta baseada na dificuldade inicial
   useEffect(() => {
     const isCalc = theme.id === 'calculus';
     setIsCalculusTheme(isCalc);
-
-    if (isCalc) {
-      // Cálculo: 7 perguntas começando em Intermediate
-      const intermediateQuestions = allQuestions.filter(q => q.difficulty === 'Intermediate');
-      const selected = intermediateQuestions.slice(0, 7);
-      setSessionQuestions(selected);
-      setCurrentDifficulty('Intermediate');
-      setTotalQuestions(7);
-    } else {
-      // Outros temas: apenas 1 pergunta
-      const selected = allQuestions.slice(0, 1);
-      setSessionQuestions(selected);
-      setTotalQuestions(1);
+    
+    // Dificuldade inicial
+    const initialDiff = isCalc ? 'Intermediate' : 'Beginner';
+    setCurrentDifficulty(initialDiff);
+    
+    // Escolher a primeira pergunta que corresponda à dificuldade
+    const firstQuestion = allQuestions.find(q => q.difficulty === initialDiff) || allQuestions[0];
+    
+    if (firstQuestion) {
+      setSessionQuestions([firstQuestion]);
+      setUsedQuestionIds(new Set([firstQuestion.id]));
     }
+    
+    setTotalQuestions(allQuestions.length);
   }, [theme, allQuestions]);
 
   // Iniciar detecção de emoções ao montar
@@ -80,13 +92,65 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
     };
   }, [sessionQuestions]);
 
+  const [showProcessGuide, setShowProcessGuide] = useState(false);
+  const [showCheatSheet, setShowCheatSheet] = useState(false);
+
+  // Obter dados da teórica para a Cheat Sheet
+  const theoryInfo = useMemo(() => {
+    return (theoryData.themes as any[]).find(t => t.id === theme.id);
+  }, [theme.id]);
+
   // Reset state quando questão muda
   useEffect(() => {
     setSelectedOption(null);
     setShowSupport(false);
     setAnswered(false);
     setAnswerCorrect(false);
+    setShowProcessGuide(false);
   }, [currentIndex]);
+
+  const getProcessGuide = () => {
+    // Priority 1: Specific steps defined for this question in the JSON
+    if (question && (question as any).steps) {
+      return (question as any).steps as string[];
+    }
+
+    // Priority 2: Generic theme-based guide
+    const guides: { [key: string]: string[] } = {
+      'algebra': [
+        'Identifica os termos com a variável (x).',
+        'Usa operações inversas para isolar o x.',
+        'Simplifica ambos os lados da equação.'
+      ],
+      'calculus': [
+        'Identifica o tipo de regra necessária (ex: Regra da Potência).',
+        'Aplica a regra a cada termo individualmente.',
+        'Verifica se o expoente e o coeficiente foram ajustados.'
+      ],
+      'geometry': [
+        'Visualiza a forma e identifica os dados conhecidos.',
+        'Escolhe a fórmula adequada (Área, Perímetro, etc).',
+        'Substitui os valores e resolve passo a passo.'
+      ],
+      'set_theory': [
+        'Analisa os elementos de cada conjunto.',
+        'Identifica a operação lógica (União, Interseção, etc).',
+        'Desenha ou mentaliza o Diagrama de Venn se ajudar.'
+      ]
+    };
+    return guides[theme.id] || ['Divide o problema em partes menores.', 'Lê a pergunta com atenção plena.', 'Tenta uma abordagem diferente.'];
+  };
+
+  // Shuffle options when question changes
+  const shuffledOptions = useMemo(() => {
+    if (!sessionQuestions[currentIndex]) return [];
+    const options = [...sessionQuestions[currentIndex].options];
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+    return options;
+  }, [currentIndex, sessionQuestions]);
 
   // Verificar frustração automaticamente
   useEffect(() => {
@@ -118,7 +182,8 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
 
   // Obter emoção dominante
   const getDominantEmotion = (): { name: string; value: number; isPositive: boolean } => {
-    if (!emotion) return { name: 'Neutro', value: 0, isPositive: false };
+    if (error || !detectionActive) return { name: 'Câmara Desligada', value: 0, isPositive: false };
+    if (!emotion) return { name: 'À procura...', value: 0, isPositive: false };
 
     const frustration = emotion.angry + emotion.sad;
     if (frustration > 0.2) {
@@ -194,6 +259,50 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
     return { newDifficulty, difficultyChanged, message };
   };
 
+  const handleSolveLater = () => {
+    if (answered) return;
+
+    // 1. Filtrar todas as perguntas disponíveis (não usadas)
+    const available = allQuestions.filter(q => !usedQuestionIds.has(q.id));
+    
+    if (available.length === 0) {
+      setDifficultyNotification({
+        id: `notif-${Date.now()}`,
+        message: 'Não há outros exercícios para trocar agora.',
+        type: 'down',
+        timestamp: Date.now()
+      });
+      return;
+    }
+
+    // 2. Tentar encontrar uma da mesma dificuldade
+    const sameDiff = available.filter(q => q.difficulty === currentDifficulty);
+    
+    // 3. Escolher uma aleatória (da mesma dificuldade se possível, senão qualquer uma)
+    const pool = sameDiff.length > 0 ? sameDiff : available;
+    const nextQuestion = pool[Math.floor(Math.random() * pool.length)];
+
+    if (nextQuestion) {
+      const currentId = sessionQuestions[currentIndex].id;
+      setUsedQuestionIds(prev => {
+        const next = new Set(prev);
+        next.delete(currentId);
+        next.add(nextQuestion.id);
+        return next;
+      });
+
+      setSessionQuestions(prev => {
+        const next = [...prev];
+        next[currentIndex] = nextQuestion;
+        return next;
+      });
+
+      setSelectedOption(null);
+      setShowSupport(false);
+      setShowProcessGuide(false);
+    }
+  };
+
   const handleSubmit = () => {
     if (!selectedOption) return;
 
@@ -237,8 +346,27 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
   };
 
   const handleContinue = () => {
-    if (currentIndex + 1 < totalQuestions) {
-      setCurrentIndex(prev => prev + 1);
+    if (usedQuestionIds.size < totalQuestions) {
+      // Procurar próxima pergunta que combine com a dificuldade atual e não tenha sido usada
+      let nextQuestion = allQuestions.find(q => q.difficulty === currentDifficulty && !usedQuestionIds.has(q.id));
+      
+      // Se não houver da dificuldade exata, pegar qualquer uma não usada
+      if (!nextQuestion) {
+        nextQuestion = allQuestions.find(q => !usedQuestionIds.has(q.id));
+      }
+
+      if (nextQuestion) {
+        setSessionQuestions(prev => [...prev, nextQuestion!]);
+        setUsedQuestionIds(prev => new Set([...prev, nextQuestion!.id]));
+        setCurrentIndex(prev => prev + 1);
+        setShowProcessGuide(false);
+        setAnswered(false);
+        setAnswerCorrect(false);
+      } else {
+        // Fallback: terminar se algo falhar
+        stopDetection();
+        onFinishTheme(score);
+      }
     } else {
       stopDetection();
       onFinishTheme(score);
@@ -262,7 +390,9 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
             user={user}
             activePath="exercises"
             onNavigateToHome={onExit}
-            onNavigateToTheory={() => {}}
+            onNavigateToTheory={onNavigateToTheoryHub}
+            onNavigateToProfile={onNavigateToProfile}
+            onNavigateToExercises={onNavigateToExercises}
         />
 
         <main className="quiz-main">
@@ -273,10 +403,23 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
                 <span className="chapter-label">CAPÍTULO: {theme.name.toUpperCase()}</span>
                 <h1>Resolve para a variável 'x'</h1>
               </div>
-              {emotion && (
+              {!detectionActive || error ? (
+                <div className="emotion-detected-badge camera-off">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 16L12 12M12 12L8 8M12 12L16 8M12 12L8 16"></path><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path></svg>
+                  <span className="emotion-text">{error || 'Câmara Desligada'}</span>
+                </div>
+              ) : (
+                emotion && (
                   <div className="emotion-detected-badge">
                     <span className="emotion-text">Emoção: {dominantEmotion.name}</span>
                   </div>
+                )
+              )}
+              {theoryInfo?.tables && (
+                <button className="btn-cheat-sheet" onClick={() => setShowCheatSheet(true)}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                  Tabela de Referência
+                </button>
               )}
             </div>
 
@@ -301,13 +444,13 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
               <div className="problem-badge">PROBLEMA {currentIndex + 1} DE {totalQuestions}</div>
 
               {isCalculusTheme && (
-                  <p className="difficulty-indicator">Dificuldade: <span className={`diff-${currentDifficulty}`}>{currentDifficulty}</span></p>
+                  <p className="difficulty-indicator">Dificuldade: <span className={`diff-${question.difficulty}`}>{question.difficulty}</span></p>
               )}
 
               <h2 className="problem-text">{question.text}</h2>
 
               <div className="options-grid">
-                {question.options.map((opt, idx) => {
+                {shuffledOptions.map((opt, idx) => {
                   const isSelected = selectedOption === opt.id;
                   const isCorrectAnswer = opt.id === question.correctOptionId;
                   const letters = ['A', 'B', 'C', 'D'];
@@ -357,7 +500,13 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
                 </button>
 
                 <div className="right-actions">
-                  <button className="btn-save">Salvar para depois</button>
+                  <button 
+                    className="btn-save" 
+                    onClick={handleSolveLater}
+                    disabled={answered}
+                  >
+                    Resolver mais tarde
+                  </button>
                   {!answered ? (
                       <button className={`btn-submit ${selectedOption ? 'active' : ''}`} onClick={handleSubmit} disabled={!selectedOption}>
                         Submeter Resposta
@@ -382,11 +531,24 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
 
                     <p className="support-desc">Notei que estás a ficar um bom tempo aqui. Vamos Simplificar:</p>
                     <div className="support-hint-box">
-                      {question.tip || 'Tenta dividir o problema em partes mais pequenas.'}
+                      {showProcessGuide ? (
+                        <div className="full-explanation">
+                          <strong>Guia de Resolução:</strong>
+                          <ul className="guide-list">
+                            {getProcessGuide().map((step, i) => (
+                              <li key={i}>{step}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : (
+                        question.tip || 'Tenta dividir o problema em partes mais pequenas.'
+                      )}
                     </div>
 
                     <div className="support-actions">
-                      <button className="btn-explain">Explicar passo 1</button>
+                      {!showProcessGuide && (
+                        <button className="btn-explain" onClick={() => setShowProcessGuide(true)}>Guia de Resolução</button>
+                      )}
                       <button className="btn-dismiss" onClick={() => setShowSupport(false)}>Estou ok, obrigado</button>
                     </div>
 
@@ -408,6 +570,42 @@ export default function Quiz({ user, theme, questions: allQuestions, onExit, onF
             </button>
           </div>
         </main>
+        {/* Cheat Sheet Modal */}
+        {showCheatSheet && theoryInfo && (
+          <div className="cheat-sheet-overlay animate-fade-in" onClick={() => setShowCheatSheet(false)}>
+            <div className="cheat-sheet-modal" onClick={e => e.stopPropagation()}>
+              <div className="cheat-sheet-header">
+                <h3>Tabela de Referência: {theoryInfo.titleMain}</h3>
+                <button className="close-btn" onClick={() => setShowCheatSheet(false)}>×</button>
+              </div>
+              <div className="cheat-sheet-content">
+                {theoryInfo.tables.map((table: any, tIdx: number) => (
+                  <div key={tIdx} className="cheat-table-wrap">
+                    <h4>{table.title}</h4>
+                    <div className="mini-table-responsive">
+                      <table className="mini-reference-table">
+                        <thead>
+                          <tr>
+                            {table.headers.map((h: string, i: number) => <th key={i}>{h}</th>)}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {table.rows.map((row: string[], ri: number) => (
+                            <tr key={ri}>
+                              {row.map((cell: string, ci: number) => (
+                                <td key={ci}>{cell.includes('^') || cell.includes('∫') || cell.includes('²') || cell.includes('³') || cell.includes('eˣ') ? <code>{cell}</code> : cell}</td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
   );
-}
+}

@@ -80,6 +80,22 @@ export default function Profile({ user, progress, streak, difficulty, onSelectDi
               </div>
             </div>
 
+            {/* Streak Card */}
+            <div className={`streak-card ${streak === 0 ? 'inactive' : 'active'}`} style={{ marginBottom: '24px' }}>
+              <div className="streak-icon" style={streak === 0 ? { background: '#f1f5f9' } : {}}>
+                {streak === 0 ? (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H7"/></svg>
+                ) : (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#006e36" strokeWidth="2"><path d="M12 15l-3-3m0 0l3-3m-3 3h8"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                )}
+              </div>
+              <span className="streak-title" style={streak === 0 ? { color: '#94a3b8' } : {}}>Sequência atual</span>
+              <span className="streak-value" style={streak === 0 ? { color: '#64748b', fontSize: '20px' } : {}}>{streak} dias seguidos</span>
+              <span className="streak-desc" style={streak === 0 ? { color: '#0060ad', fontWeight: 'bold' } : {}}>
+                {streak === 0 ? 'Hora de aprender!' : 'Continua assim!'}
+              </span>
+            </div>
+
             {/* Learning Profile */}
             <div className="learning-profile-card">
               <div className="lp-header">
@@ -94,7 +110,7 @@ export default function Profile({ user, progress, streak, difficulty, onSelectDi
               
               <div className="lp-item">
                 <span className="lp-label">MODO DE FOCO</span>
-                <span className="lp-value">Explorador Consciênte</span>
+                <span className="lp-value">Explorador Consciente</span>
               </div>
             </div>
           </div>
@@ -197,25 +213,6 @@ export default function Profile({ user, progress, streak, difficulty, onSelectDi
               </div>
 
             </div>
-
-            {/* Bottom Cards */}
-            <div className="profile-bottom-cards">
-              <div className="premium-card">
-                <h3>Prespetivas Premium</h3>
-                <p>Desbloqueaste uma análise emocional profunda para os teus módulos de cálculo.</p>
-                <button className="btn-view-report">Ver Relatório</button>
-              </div>
-
-              <div className="streak-card">
-                <div className="streak-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#006e36" strokeWidth="2"><path d="M12 15l-3-3m0 0l3-3m-3 3h8"></path><circle cx="12" cy="12" r="10"></circle></svg>
-                </div>
-                <span className="streak-title">Série Atual</span>
-                <span className="streak-value">{streak} Dias</span>
-                <span className="streak-desc">Mantém o momento!</span>
-              </div>
-            </div>
-
           </div>
         </div>
       </main>

@@ -101,6 +101,27 @@
   color: #ffffff;
 }
 
+.theory-card.upcoming-card {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+.theory-card.upcoming-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.theory-card.upcoming-card .theory-card-icon {
+  background: #e2e8f0;
+  color: #64748b;
+}
+
+.theory-card.upcoming-card h2 {
+  color: #64748b;
+}
+
 @media (max-width: 768px) {
   .theory-hub-main {
     padding: 24px;

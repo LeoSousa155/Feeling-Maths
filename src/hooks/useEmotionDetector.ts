@@ -35,6 +35,10 @@ export function useEmotionDetector(): UseEmotionDetectorReturn {
             setLoading(true);
             setError(null);
 
+            if (!window.isSecureContext) {
+                throw new Error('A câmara requer uma ligação segura (HTTPS). Se estiveres no telemóvel, usa o modo de depuração ou HTTPS.');
+            }
+
             const MODEL_URL = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model/';
 
             await Promise.all([

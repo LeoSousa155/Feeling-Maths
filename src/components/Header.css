@@ -60,11 +60,12 @@
   padding: 0;
   display: flex;
   align-items: center;
-  transition: color 0.2s;
+  transition: all 0.2s;
 }
 
 .header-icon-btn:hover {
-  color: #2a343a;
+  color: #0060ad;
+  transform: translateY(-2px);
 }
 
 .header-avatar-btn {
@@ -72,16 +73,24 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-avatar-btn:hover {
+  transform: scale(1.15);
+  border-color: #0060ad;
+  box-shadow: 0 4px 15px rgba(0, 96, 173, 0.2);
 }
 
 .header-avatar-btn.active-avatar {
   border: 2px solid #0060ad;
-  padding: 2px;
+  box-shadow: 0 0 0 2px rgba(0, 96, 173, 0.1);
 }
 
 .header-avatar-btn img {

@@ -40,7 +40,7 @@ function App() {
 
   // Derived global stats
   const totalCompleted = Object.values(progress).reduce((sum, p) => sum + p.completed, 0);
-  const streak = Math.max(14, totalCompleted);
+  const streak = totalCompleted > 0 ? 1 : 0;
 
   // Landing / Auth Screen Routing
   if (!user) {
@@ -74,7 +74,7 @@ function App() {
       if (!theme) return null;
 
 
-    const filteredQuestions = theme.questions.filter((q) => q.difficulty === difficulty);
+    const allThemeQuestions = theme.questions;
 
       if (quizStatus.status === 'completed') {
       return (
@@ -82,7 +82,7 @@ function App() {
             user={user}
             themeName={theme.name}
             score={quizStatus.score}
-            total={filteredQuestions.length}
+            total={allThemeQuestions.length}
             difficulty={difficulty}
             onNavigateToHome={() => {
                 setQuizStatus({status: 'idle', score: 0});
@@ -106,7 +106,7 @@ function App() {
       <Quiz 
         user={user}
         theme={theme}
-        questions={filteredQuestions}
+        questions={allThemeQuestions}
         onExit={() => {
           setQuizStatus({status: 'idle', score: 0});
           setCurrentTheme(null);
@@ -114,12 +114,12 @@ function App() {
         onFinishTheme={(score) => {
           // Update progress
           setProgress(prev => {
-            const current = prev[theme.id] || { completed: 0, total: filteredQuestions.length, score: 0 };
+            const current = prev[theme.id] || { completed: 0, total: allThemeQuestions.length, score: 0 };
             return {
               ...prev,
               [theme.id]: {
                 ...current,
-                completed: Math.min(filteredQuestions.length, current.completed + filteredQuestions.length),
+                completed: Math.min(allThemeQuestions.length, current.completed + allThemeQuestions.length),
                 score: Math.max(current.score, score)
               }
             };
@@ -129,7 +129,22 @@ function App() {
           setCurrentTheory(themeId);
           setActiveView('theory-lesson');
           setQuizStatus({status: 'idle', score: 0});
-      }}
+        }}
+        onNavigateToTheoryHub={() => {
+          setActiveView('theory-hub');
+          setQuizStatus({status: 'idle', score: 0});
+          setCurrentTheme(null);
+        }}
+        onNavigateToProfile={() => {
+          setActiveView('profile');
+          setQuizStatus({status: 'idle', score: 0});
+          setCurrentTheme(null);
+        }}
+        onNavigateToExercises={() => {
+          setActiveView('exercises');
+          setQuizStatus({status: 'idle', score: 0});
+          setCurrentTheme(null);
+        }}
       />
     );
   }

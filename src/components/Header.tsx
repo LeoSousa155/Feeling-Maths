@@ -22,10 +22,20 @@ export default function Header({ user, activePath = 'home', onNavigateToHome, on
       </div>
       
       <div className="header-right">
-        <button className="header-icon-btn">
+        <button className="header-icon-btn" title="Notificações" style={{ position: 'relative' }}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span style={{ 
+            position: 'absolute', 
+            top: '-2px', 
+            right: '-2px', 
+            width: '8px', 
+            height: '8px', 
+            background: '#dc2626', 
+            borderRadius: '50%', 
+            border: '2px solid #ffffff' 
+          }}></span>
         </button>
-        <button className="header-icon-btn">
+        <button className="header-icon-btn" title="As tuas conquistas">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
         </button>
         <button className={`header-avatar-btn ${activePath === 'profile' ? 'active-avatar' : ''}`} onClick={onNavigateToProfile}>

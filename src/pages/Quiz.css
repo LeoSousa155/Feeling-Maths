@@ -51,8 +51,35 @@
   flex-direction: column;
 }
 
-.quiz-header {
-  margin-bottom: 48px;
+.quiz-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.emotion-detected-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0060ad;
+}
+
+.emotion-detected-badge.camera-off {
+  color: #94a3b8;
+  background: #f8fafc;
+}
+
+.emotion-text {
+  white-space: nowrap;
 }
 
 .chapter-label {
@@ -333,6 +360,31 @@
   background: #ffffff;
   padding: 2px 6px;
   border-radius: 4px;
+}
+
+.full-explanation {
+  font-size: 14px;
+  border-top: 1px solid rgba(15, 118, 110, 0.1);
+  padding-top: 12px;
+}
+
+.full-explanation strong {
+  color: #0f766e;
+  background: transparent;
+  padding: 0;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.guide-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: decimal;
+}
+
+.guide-list li {
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
 .support-actions {
@@ -657,4 +709,148 @@
   line-height: 1.8;
   margin: 1.5rem 0;
   font-weight: 600;
+}
+/* Cheat Sheet Styles */
+.btn-cheat-sheet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn-cheat-sheet:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.cheat-sheet-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.cheat-sheet-modal {
+  background: #ffffff;
+  border-radius: 32px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.2);
+  animation: modalScaleUp 0.3s ease-out;
+}
+
+@keyframes modalScaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.cheat-sheet-header {
+  padding: 24px 32px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.cheat-sheet-header h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+}
+
+.close-btn {
+  background: #e2e8f0;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  color: #475569;
+  transition: all 0.2s;
+}
+
+.close-btn:hover {
+  background: #cbd5e1;
+  color: #1e293b;
+}
+
+.cheat-sheet-content {
+  padding: 32px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.cheat-table-wrap h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 16px 0;
+}
+
+.mini-table-responsive {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+}
+
+.mini-reference-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mini-reference-table th {
+  text-align: left;
+  padding: 12px 16px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.mini-reference-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+  color: #334155;
+}
+
+.mini-reference-table code {
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
 }

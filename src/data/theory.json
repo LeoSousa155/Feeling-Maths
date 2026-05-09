@@ -1,180 +1,428 @@
 {
   "themes": [
     {
+      "id": "geometry",
+      "category": "Geometria",
+      "topic": "Espaço & Forma",
+      "titlePrefix": "Fundamentos de",
+      "titleMain": "Geometria Plana",
+      "subtitle": "Entende o espaço que os objetos ocupam e as relações entre as suas dimensões.",
+      "goldenRule": {
+        "text": "Perímetro mede o contorno (1D), Área mede o preenchimento (2D).",
+        "formulaTitle": "ÁREA E PERÍMETRO",
+        "formula": "A = b × h | P = 2b + 2h",
+        "rules": [
+          {
+            "title": "Retângulos",
+            "desc": "Multiplica base pela altura para a área."
+          },
+          {
+            "title": "Unidades",
+            "desc": "Área é sempre em unidades ao quadrado (cm², m²)."
+          }
+        ]
+      },
+      "proTip": "Caminhar pela borda = Perímetro. Pintar o interior = Área.",
+      "imageInfo": {
+        "title": "DIMENSÕES",
+        "desc": "Perímetro é linear, Área é superficial."
+      },
+      "modules": [
+        {
+          "id": "pythagoras",
+          "title": "Teorema de Pitágoras",
+          "subtitle": "Triângulos Retângulos",
+          "content": "A soma dos quadrados dos catetos é igual ao quadrado da hipotenusa.",
+          "formula": "a² + b² = c²",
+          "type": "formula_card",
+          "color": "indigo"
+        }
+      ],
+      "tables": [
+        {
+          "title": "Fórmulas de Figuras Planas",
+          "headers": [
+            "Figura",
+            "Área",
+            "Perímetro"
+          ],
+          "rows": [
+            [
+              "Quadrado",
+              "L²",
+              "4L"
+            ],
+            [
+              "Retângulo",
+              "b × h",
+              "2(b + h)"
+            ],
+            [
+              "Triângulo",
+              "(b × h) / 2",
+              "Soma dos lados"
+            ],
+            [
+              "Círculo",
+              "πr²",
+              "2πr"
+            ]
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "title": "Hipotenusa",
+          "desc": "Lado oposto ao ângulo reto."
+        },
+        {
+          "number": 2,
+          "title": "Cálculo",
+          "desc": "3² + 4² = 25",
+          "equation": "25 = c²"
+        },
+        {
+          "number": 3,
+          "title": "Raiz",
+          "desc": "c = 5",
+          "equation": "c = 5",
+          "solved": true
+        }
+      ]
+    },
+    {
       "id": "algebra",
-      "category": "Algebra",
+      "category": "Álgebra",
       "topic": "Fundamentos",
       "titlePrefix": "Primeiro Grau",
       "titleMain": "Equações Lineares",
-      "subtitle": "O fundamento do raciocínio de algebra. Aprende a equilibrar as escalas e isola as variáveis desconhecidas com precisão e calma.",
+      "subtitle": "O fundamento do raciocínio de algebra. Aprende a equilibrar as escalas e isola as variáveis desconhecidas.",
       "goldenRule": {
-        "text": "Uma equação linear é uma declaração onde ambas as expressões são iguais. Qualquer operação feita em um lado deve ser feito no outro para poder manter este equilibrio.",
+        "text": "Uma equação é uma balança. Qualquer operação feita num lado deve ser repetida no outro para manter o equilíbrio.",
         "formulaTitle": "FORMA GERAL",
         "formula": "ax + b = c",
         "rules": [
           {
-            "title": "1. Adição e SubtraçÃo",
-            "desc": "Move constantes para o outro lado ao aplicar a operação inversa."
+            "title": "Operações Inversas",
+            "desc": "Adição anula subtração, multiplicação anula divisão."
           },
           {
-            "title": "2. Multiplicação e Divisão",
-            "desc": "Isola as variáveis ao dividir pelo coeficiente ou multiplicar pelo recíproco."
+            "title": "Isolamento",
+            "desc": "O objetivo é deixar a variável sozinha num dos membros."
           }
         ]
       },
-      "proTip": "Pensa sobre o sinal de igual (=) como o centro de uma balança. Para manter a balança equilibrada, se tirares 5 kg de um do lado esquerdo, também tens que tirar do lado direito.",
+      "proTip": "Pensa no sinal '=' como o centro de gravidade. Mantém tudo nivelado.",
       "imageInfo": {
         "title": "LINEARIDADE",
-        "desc": "O grafico de uma equação de primeiro grau é sempre uma linha reta."
+        "desc": "O gráfico é sempre uma linha reta."
       },
+      "modules": [
+        {
+          "id": "variables",
+          "title": "O que é uma Variável?",
+          "subtitle": "Incógnitas Explicadas",
+          "content": "Uma variável (como x, y ou z) é simplesmente um espaço reservado para um número que ainda não conhecemos. O objetivo da álgebra é descobrir o valor que essa variável esconde.\n\nQuando encontras '3x', significa 3 vezes x. Não te deixes intimidar pelas letras, elas funcionam exatamente como números!",
+          "formula": "Se 3x = 12, então x = 12 / 3",
+          "type": "text",
+          "color": "teal"
+        }
+      ],
+      "tables": [
+        {
+          "title": "Operações e Inversas",
+          "headers": [
+            "Operação",
+            "Inversa",
+            "Exemplo"
+          ],
+          "rows": [
+            [
+              "Adição (+)",
+              "Subtração (-)",
+              "x + 5 = 10 ➔ x = 5"
+            ],
+            [
+              "Subtração (-)",
+              "Adição (+)",
+              "x - 3 = 7 ➔ x = 10"
+            ],
+            [
+              "Multiplicação (×)",
+              "Divisão (÷)",
+              "2x = 8 ➔ x = 4"
+            ],
+            [
+              "Divisão (÷)",
+              "Multiplicação (×)",
+              "x/2 = 5 ➔ x = 10"
+            ]
+          ]
+        }
+      ],
       "steps": [
         {
           "number": 1,
-          "title": "Identifica o objetivo",
-          "desc": "Nós queremos resolver para x a equação: 3x + 12 = 27"
+          "title": "Identifica",
+          "desc": "3x + 12 = 27"
         },
         {
           "number": 2,
-          "title": "Subtrai Constantes",
-          "desc": "Subtrai 12 de ambos os lados para isolarmos o termo x.",
-          "equation": "3x + 12 - 12 = 27 - 12\n3x = 15"
+          "title": "Subtrai",
+          "desc": "3x = 15",
+          "equation": "3x = 15"
         },
         {
           "number": 3,
-          "title": "Divide pelo coeficiente",
-          "desc": "Divide ambos os lados por 3 para encontrar o valor final de x.",
+          "title": "Divide",
+          "desc": "x = 5",
           "equation": "x = 5",
           "solved": true
         }
       ]
     },
     {
-      "id": "geometry",
-      "category": "Geometry",
-      "topic": "Spatial Basics",
-      "titlePrefix": "Área & Perimetro",
-      "titleMain": "Formas 2D",
-      "subtitle": "Entende o espaço que objetos ocupam e as bordas que os limitam.",
-      "goldenRule": {
-        "text": "Perimetro é o comprimento total dos limites, enquanto que a área mede o espaço 2D dentro desse limite.",
-        "formulaTitle": "ÁREA RETANGULAR",
-        "formula": "A = w × h",
-        "rules": [
-          {
-            "title": "1. Perimetro",
-            "desc": "Adiciona todos os lados externos. Para o retângulo: P = 2w + 2h."
-          },
-          {
-            "title": "2. Área",
-            "desc": "Multiplica pelas dimensões da base. Unidades são sempre ao quadrado (e.g., cm²)."
-          }
-        ]
-      },
-      "proTip": "Imagina andar por uma cerca para o perimetro, e pintar a relva por dentro da cerca para a área.",
-      "imageInfo": {
-        "title": "DIMENSÕES",
-        "desc": "Perimetro é 1D (comprimento), Área é 2D (espaço)."
-      },
-      "steps": [
-        {
-          "number": 1,
-          "title": "Identifica a forma",
-          "desc": "Temos um retângulo com largura de 5m e altura de 3m."
-        },
-        {
-          "number": 2,
-          "title": "Calcular o Perimetro",
-          "desc": "Adiciona os quatro lados: 5 + 3 + 5 + 3.",
-          "equation": "P = 16m"
-        },
-        {
-          "number": 3,
-          "title": "Calcular a área",
-          "desc": "Multiplica a altura pela largura.",
-          "equation": "A = 15m²",
-          "solved": true
-        }
-      ]
-    },
-    {
       "id": "set_theory",
-      "category": "Set Theory",
-      "topic": "Lógica & Coleções",
-      "titlePrefix": "Uniões, Interseções",
-      "titleMain": "& Diagramas de Venn",
-      "subtitle": "Visualiza a linguagem da lógica. Conjuntos são os blocos de construção da matemática - uma vez que entendas como as coleções se relacionam entre si, os padrões se aparecem em todo o lado.",
+      "category": "Lógica",
+      "topic": "Conjuntos & Coleções",
+      "titlePrefix": "Fundamentos da",
+      "titleMain": "Teoria de Conjuntos",
+      "subtitle": "Visualiza as relações entre grupos de elementos e domina a lógica moderna.",
       "goldenRule": {
-        "text": "Um conjunto é uma coleção de objetos distintos não ordenados, e bem definidos chamados de elementos. Dois conjuntos são iguais apenas, e apenas se, conterem os mesmos elementos, independentemente da ordem.",
-        "formulaTitle": "NOTAÇÃO DE CONJUNTO",
-        "formula": "A = { x | P(x) }",
+        "text": "A união junta tudo, a interseção foca no que é comum.",
+        "formulaTitle": "NOTAS CHAVE",
+        "formula": "A ∪ B | A ∩ B",
         "rules": [
           {
-            "title": "1. União  A ∪ B",
-            "desc": "Todos os elementos que pertencem a A, a B, ou a ambos. Pensa 'OR'. |A ∪ B| = |A| + |B| − |A ∩ B|."
+            "title": "União (∪)",
+            "desc": "A OU B."
           },
           {
-            "title": "2. Intercepção  A ∩ B",
-            "desc": "Apenas elementos que pertençam a ambos A e B simultaniamente. Pensa 'AND'."
-          },
-          {
-            "title": "3. Complemento de  Aᶜ",
-            "desc": "Todos os elementos que estão no conjunto universal (U) que NÃO estão em A. Aᶜ = U \\ A."
-          },
-          {
-            "title": "4. Diferença  A \\ B",
-            "desc": "Elementos que estão em A mas não em B. Também escrito como A − B."
+            "title": "Interseção (∩)",
+            "desc": "A E B."
           }
         ]
       },
-      "proTip": "A palavra 'AND' quase sempre significa Intercepção (∩), enquanto que 'OR' significa União (∪). Traduz linguagem natural para notação de conjuntos primeiro — a matemática se torna trivial.",
+      "proTip": "Venn é o teu melhor amigo para visualizar lógica.",
       "imageInfo": {
-        "title": "CARDINALIDADE",
-        "desc": "O número de elementos em um conjuntos é a sua cardinalidade, escrito |A|. Um conjunto vazio ∅ tem cardinalidade 0."
+        "title": "DIAGRAMAS",
+        "desc": "Círculos que se sobrepõem."
       },
-      "extraConcepts": [
+      "modules": [
         {
-          "icon": "∅",
-          "title": "Conjunto Vazio",
-          "desc": "Um conjunto sem elementos: ∅ ou {}. É um subconjunto de todos os conjuntos."
-        },
+          "id": "empty_set",
+          "title": "O Conjunto Vazio",
+          "content": "Representado por ∅, é o conjunto que não contém elementos.",
+          "type": "text"
+        }
+      ],
+      "tables": [
         {
-          "icon": "⊆",
-          "title": "Subconjunto",
-          "desc": "A ⊆ B se todos os elementos de A também estiverem em B. Todos os conjuntos são um subconjunto de si mesmos."
-        },
-        {
-          "icon": "×",
-          "title": "Produto Cartesiano",
-          "desc": "A × B é um conjunto de todos os pares ordenados (a, b) onde a ∈ A e b ∈ B."
+          "title": "Símbolos Lógicos",
+          "headers": [
+            "Símbolo",
+            "Significado",
+            "Lê-se"
+          ],
+          "rows": [
+            [
+              "∈",
+              "Pertence",
+              "x pertence a A"
+            ],
+            [
+              "⊂",
+              "Subconjunto Próprio",
+              "A está contido em B"
+            ],
+            [
+              "∪",
+              "União",
+              "A unido com B"
+            ],
+            [
+              "∩",
+              "Interseção",
+              "A interseção B"
+            ],
+            [
+              "∅",
+              "Vazio",
+              "Conjunto vazio"
+            ]
+          ]
         }
       ],
       "steps": [
         {
           "number": 1,
-          "title": "Define os teus conjuntos",
-          "desc": "Dado: A = {2, 4, 6, 8, 10} e B = {1, 2, 3, 4, 5}. Identifica o que cada conjunto representa antes de operar com eles."
+          "title": "Interseção",
+          "desc": "Elementos comuns.",
+          "equation": "A ∩ B = {3}",
+          "solved": true
+        }
+      ]
+    },
+    {
+      "id": "calculus",
+      "category": "Cálculo",
+      "topic": "Mudança Instantânea",
+      "titlePrefix": "Introdução ao",
+      "titleMain": "Cálculo Diferencial & Integral",
+      "subtitle": "A matemática da mudança. Domina as taxas de variação e a acumulação de áreas.",
+      "goldenRule": {
+        "text": "Derivada é a taxa de mudança. Integral é a acumulação total.",
+        "formulaTitle": "FUNDAMENTOS",
+        "formula": "f'(x) = lim h→0 ...",
+        "rules": [
+          {
+            "title": "Derivada",
+            "desc": "Declive da tangente."
+          },
+          {
+            "title": "Integral",
+            "desc": "Área sob a curva."
+          }
+        ]
+      },
+      "proTip": "Se a posição é f(x), a velocidade é f'(x) e a aceleração é f''(x).",
+      "imageInfo": {
+        "title": "FLUXO",
+        "desc": "Cálculo é a matemática do movimento."
+      },
+      "modules": [
+        {
+          "id": "polynomials",
+          "title": "Derivadas de Polinómios",
+          "subtitle": "Regra da Potência",
+          "content": "Para derivar um termo do tipo xⁿ, 'puxas' o expoente para a frente a multiplicar, e subtrais 1 ao expoente atual. É a regra mais fundamental do cálculo.\n\nExemplo: Para f(x) = x³, o 3 desce, e o expoente passa a 2. Logo f'(x) = 3x².",
+          "formula": "d/dx(xⁿ) = n·xⁿ⁻¹",
+          "type": "formula_card",
+          "color": "teal"
+        },
+        {
+          "id": "exponentials",
+          "title": "Derivada da Exponencial",
+          "subtitle": "A Função Imortal",
+          "content": "A função eˣ é única na matemática: a sua taxa de variação é exatamente igual ao seu próprio valor. Portanto, a derivada de eˣ é simplesmente eˣ.\n\nSe tiveres uma constante a multiplicar, ela mantém-se: d/dx(5eˣ) = 5eˣ.",
+          "formula": "d/dx(eˣ) = eˣ",
+          "type": "formula_card",
+          "color": "purple"
+        },
+        {
+          "id": "trigonometric",
+          "title": "Derivadas Trigonométricas",
+          "subtitle": "Oscilações Básicas",
+          "content": "As derivadas do seno e cosseno formam um ciclo. A derivada do seno é o cosseno. A derivada do cosseno é o menos seno.\n\nDica para decorar: O 'co'sseno ganha um sinal de menos quando o derivas.",
+          "formula": "d/dx(sen x) = cos x\nd/dx(cos x) = -sen x",
+          "type": "formula_card",
+          "color": "indigo"
+        },
+        {
+          "id": "chain_rule",
+          "title": "Regra da Cadeia",
+          "subtitle": "Funções dentro de Funções",
+          "content": "Quando tens uma função composta (uma função dentro da outra), derivas a função de 'fora', mantendo o interior igual, e depois multiplicas pela derivada do 'interior'.\n\nExemplo: d/dx(sen(2x)) = cos(2x) · 2 = 2cos(2x)",
+          "formula": "[f(g(x))]' = f'(g(x)) · g'(x)",
+          "type": "formula_card",
+          "color": "teal"
+        },
+        {
+          "id": "integrals",
+          "title": "Introdução aos Integrais",
+          "subtitle": "O Inverso da Derivada",
+          "content": "O integral é o processo oposto da derivação. Em vez de encontrares a taxa de variação, estás a acumular área. Adicionas 1 ao expoente e divides pelo novo expoente.\n\nNão te esqueças de adicionar a constante 'C' nos integrais indefinidos!",
+          "formula": "∫ xⁿ dx = (xⁿ⁺¹)/(n+1) + C",
+          "type": "formula_card",
+          "color": "purple"
+        }
+      ],
+      "tables": [
+        {
+          "title": "Tabela de Derivadas Comuns",
+          "headers": [
+            "Função f(x)",
+            "Derivada f'(x)"
+          ],
+          "rows": [
+            [
+              "Constante (c)",
+              "0"
+            ],
+            [
+              "xⁿ",
+              "nxⁿ⁻¹"
+            ],
+            [
+              "eˣ",
+              "eˣ"
+            ],
+            [
+              "ln(x)",
+              "1/x"
+            ],
+            [
+              "sen(x)",
+              "cos(x)"
+            ],
+            [
+              "cos(x)",
+              "-sen(x)"
+            ],
+            [
+              "tan(x)",
+              "sec²(x)"
+            ]
+          ]
+        },
+        {
+          "title": "Tabela de Integrais Imediatas",
+          "headers": [
+            "Função f(x)",
+            "Integral ∫ f(x)dx"
+          ],
+          "rows": [
+            [
+              "0",
+              "C"
+            ],
+            [
+              "xⁿ (n≠-1)",
+              "(xⁿ⁺¹)/(n+1) + C"
+            ],
+            [
+              "1/x",
+              "ln|x| + C"
+            ],
+            [
+              "eˣ",
+              "eˣ + C"
+            ],
+            [
+              "sen(x)",
+              "-cos(x) + C"
+            ],
+            [
+              "cos(x)",
+              "sen(x) + C"
+            ]
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "title": "Potência",
+          "desc": "Para x³, n=3."
         },
         {
           "number": 2,
-          "title": "Encontra a União  A ∪ B",
-          "desc": "Combina todos os elementos únicos de ambos os conjuntos. Cada elemento aparece apenas uma vez.",
-          "equation": "A ∪ B = {1, 2, 3, 4, 5, 6, 8, 10}"
-        },
-        {
-          "number": 3,
-          "title": "Encontra a interação A ∩ B",
-          "desc": "Identifica os elementos que apareçam em AMBOS os conjuntos. Procura em A por elementos que também apareçam em B.",
-          "equation": "A ∩ B = {2, 4}"
-        },
-        {
-          "number": 4,
-          "title": "Verifica com o principio de Inclusão-Exclusão",
-          "desc": "Verifica: |A ∪ B| = |A| + |B| − |A ∩ B| = 5 + 5 − 2 = 8. A nossa união tem 8 elementos. ✓",
-          "equation": "|A ∪ B| = 5 + 5 − 2 = 8",
-          "solved": true
+          "title": "Resultado",
+          "desc": "3x²",
+          "equation": "3x²"
         }
       ]
     }
   ]
 }
-
